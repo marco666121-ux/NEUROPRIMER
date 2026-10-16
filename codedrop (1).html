@@ -1,0 +1,2107 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>NEUROPRIMER // 30-Stage Cognitive Activation & Study Suite</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            bgPrimary: '#050505',
+            bgSecondary: '#0A0A0A',
+            cardBg: '#101010',
+            borderCol: '#27272A',
+            textMain: '#FFFFFF',
+            textSec: '#A1A1AA',
+            textMuted: '#71717A',
+            hoverBg: '#181818',
+            btnBg: '#FFFFFF',
+            btnText: '#050505'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+    
+    * {
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #050505;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      position: relative;
+    }
+    @keyframes dotDrift {
+      0% { background-position: 0px 0px, 50% 18%; }
+      50% { background-position: 10px 10px, 53% 24%; }
+      100% { background-position: 20px 20px, 50% 18%; }
+    }
+    @keyframes ambientPulse {
+      0%, 100% { opacity: 0.85; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.02); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .bg-dot-gradient {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-color: #050505;
+      background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.32) 1px, transparent 1px),
+        radial-gradient(circle at 50% 18%, rgba(82, 82, 91, 0.65) 0%, rgba(24, 24, 27, 0.45) 48%, rgba(5, 5, 5, 0.98) 100%);
+      background-size: 10px 10px, 100% 100%;
+      background-position: 0 0, center center;
+      animation: dotDrift 16s linear infinite, ambientPulse 8s ease-in-out infinite;
+    }
+    .animate-fade-up {
+      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .delay-100 { animation-delay: 0.1s; opacity: 0; }
+    .delay-200 { animation-delay: 0.2s; opacity: 0; }
+    .delay-300 { animation-delay: 0.3s; opacity: 0; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .grid-cell { aspect-ratio: 1 / 1; transition: all 0.08s ease; }
+    .grid-cell:active { transform: scale(0.93); }
+    
+    .flash-blue { background-color: #3B82F6 !important; color: #fff !important; box-shadow: 0 0 25px rgba(59,130,246,0.85); }
+    .flash-yellow { background-color: #EAB308 !important; color: #000 !important; box-shadow: 0 0 25px rgba(234,179,8,0.85); }
+    .flash-red { background-color: #EF4444 !important; color: #fff !important; box-shadow: 0 0 25px rgba(239,68,68,0.85); }
+    
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #27272A; border-radius: 2px; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-white selection:text-black">
+
+  <div class="bg-dot-gradient" aria-hidden="true"></div>
+
+  <!-- ========================================================================= -->
+  <!-- 1. MONOCHROME MINIMALIST LANDING PAGE VIEW -->
+  <!-- ========================================================================= -->
+  <div id="view-landing" class="relative z-10 flex flex-col min-h-screen">
+    <header class="w-full sticky top-0 z-50 px-6 sm:px-12 py-6 flex items-center justify-between max-w-6xl mx-auto bg-[#050505]/70 backdrop-blur-md">
+      <div class="flex items-center gap-3">
+        <div class="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+        <span class="font-medium tracking-[0.2em] text-xs uppercase text-white mono">NEUROPRIMER <span class="text-[#71717A] lowercase text-[10px]">by hanii.mohd</span></span>
+      </div>
+    </header>
+
+    <section class="flex-1 flex flex-col items-center justify-center px-6 py-16 text-center max-w-xl mx-auto">
+      <span class="mono text-[11px] tracking-[0.25em] uppercase text-[#A1A1AA] mb-6 animate-fade-up">30-STAGE COGNITIVE ACTIVATION</span>
+      <h1 class="text-[34px] sm:text-[60px] font-light tracking-tight leading-[1.1] mb-6 text-white animate-fade-up delay-100">
+        Quiet the noise. <br/>
+        <span class="font-semibold text-white">Prime your focus.</span>
+      </h1>
+      <p class="text-[14px] sm:text-[15px] text-[#A1A1AA] max-w-[440px] mb-12 leading-relaxed font-normal animate-fade-up delay-200">
+        30 neuroscience-backed micro-exercises designed to activate attention and working memory before deep study.
+      </p>
+      <div class="flex justify-center w-full animate-fade-up delay-300">
+        <button onclick="openCatalogSection()" class="w-full sm:w-auto px-12 py-4 sm:py-5 rounded-full bg-white text-[#050505] hover:bg-[#E4E4E7] hover:scale-105 font-medium text-xs tracking-[0.18em] uppercase active:scale-95 transition-all duration-300 mono shadow-xl">
+          EXPLORE
+        </button>
+      </div>
+    </section>
+
+    <section id="catalog" class="hidden py-16 px-6 sm:px-12 max-w-6xl mx-auto w-full border-t border-[#27272A]/80">
+      <div class="text-center mb-12">
+        <span class="mono text-[11px] text-[#71717A] uppercase tracking-[0.25em]">COGNITIVE ARCHIVE</span>
+        <h2 class="text-2xl font-semibold text-white mt-2 tracking-tight">Select a Neural Exercise</h2>
+      </div>
+      <div id="landing-game-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Dynamically injected via JS -->
+      </div>
+    </section>
+
+    <footer class="py-10 px-6 text-center text-[10px] text-[#71717A] mono tracking-[0.2em] uppercase">
+      NEUROPRIMER // COGNITIVE WARMUP SUITE // hanii.mohd
+    </footer>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- 2. MONOCHROME IN-APP SHELL -->
+  <!-- ========================================================================= -->
+  <div id="view-app" class="relative z-10 hidden flex-col min-h-screen p-4 sm:p-6 max-w-lg mx-auto justify-between w-full">
+
+    <header class="flex items-center justify-between pb-4 border-b border-[#27272A]">
+      <div class="flex items-center gap-3">
+        <button onclick="returnToLanding()" class="px-3.5 py-1.5 bg-[#101010]/90 hover:bg-[#181818] border border-[#27272A] rounded-full text-[11px] mono text-[#A1A1AA] transition">
+          ← BACK
+        </button>
+        <div>
+          <h1 id="app-header-title" class="text-xs font-semibold tracking-wider uppercase text-white">NEUROPRIMER</h1>
+          <p id="app-header-sub" class="text-[10px] text-[#71717A] mono">01 / 30</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="toggleGameDrawer()" class="px-3.5 py-1.5 bg-[#101010]/90 hover:bg-[#181818] border border-[#27272A] text-[#A1A1AA] rounded-full text-[11px] mono transition">
+          INDEX
+        </button>
+        <button onclick="startFullProtocol()" class="px-4 py-1.5 bg-white text-[#050505] hover:bg-[#E4E4E7] text-[11px] font-semibold rounded-full mono transition">
+          AUTO RUN
+        </button>
+      </div>
+    </header>
+
+    <div id="game-drawer" class="hidden my-2 bg-[#101010]/95 backdrop-blur-md border border-[#27272A] rounded-2xl p-3 max-h-60 overflow-y-auto z-30">
+      <div class="text-[10px] mono text-[#71717A] uppercase mb-2 tracking-wider">Switch Exercise</div>
+      <div id="drawer-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-1.5"></div>
+    </div>
+
+    <!-- MAIN STAGE -->
+    <main class="flex-1 flex flex-col justify-center my-3">
+
+      <div class="mb-3 bg-[#101010]/90 backdrop-blur-sm border border-[#27272A] rounded-2xl p-4">
+        <div class="flex items-center justify-between mb-1.5">
+          <div id="mode-title" class="text-xs font-semibold tracking-wide text-white">Schulte Focus Grid</div>
+          <span id="brain-region" class="mono text-[9px] text-[#A1A1AA] bg-[#181818] border border-[#27272A] px-2 py-0.5 rounded-full">PARIETAL CORTEX</span>
+        </div>
+        <p id="mode-desc" class="text-[11px] text-[#A1A1AA] leading-relaxed"></p>
+      </div>
+
+      <div class="grid grid-cols-3 gap-2.5 mb-3 mono">
+        <div class="bg-[#101010]/90 backdrop-blur-sm border border-[#27272A] rounded-2xl p-2.5 text-center">
+          <div class="text-[9px] text-[#71717A] uppercase tracking-wider" id="stat1-label">TARGET</div>
+          <div class="text-base font-bold text-white mt-0.5" id="stat1-val">1</div>
+        </div>
+        <div class="bg-[#101010]/90 backdrop-blur-sm border border-[#27272A] rounded-2xl p-2.5 text-center">
+          <div class="text-[9px] text-[#71717A] uppercase tracking-wider" id="stat2-label">TIME</div>
+          <div class="text-base font-bold text-white mt-0.5" id="stat2-val">0.0s</div>
+        </div>
+        <div class="bg-[#101010]/90 backdrop-blur-sm border border-[#27272A] rounded-2xl p-2.5 text-center">
+          <div class="text-[9px] text-[#71717A] uppercase tracking-wider" id="stat3-label">BEST</div>
+          <div class="text-base font-bold text-[#A1A1AA] mt-0.5" id="stat3-val">--</div>
+        </div>
+      </div>
+
+      <!-- GAME VIEWPORT CONTAINER -->
+      <div id="viewport-frame" class="relative bg-[#101010]/95 backdrop-blur-md border border-[#27272A] rounded-3xl p-4 aspect-square flex flex-col items-center justify-center overflow-hidden shadow-2xl">
+        <div id="game-container" class="w-full h-full flex flex-col items-center justify-center relative"></div>
+        <div id="overlay" class="absolute inset-0 bg-[#050505]/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-20">
+          <div id="overlay-tag" class="mono text-[9px] uppercase tracking-[0.2em] text-[#A1A1AA] border border-[#27272A] bg-[#101010] px-3 py-1 rounded-full mb-3">
+            NEURAL WARMUP
+          </div>
+          <h2 id="overlay-title" class="text-xl font-semibold tracking-tight mb-1.5 text-white">Ready to Prime?</h2>
+          <p id="overlay-sub" class="text-xs text-[#A1A1AA] max-w-xs mb-7 leading-relaxed"></p>
+          <button onclick="startCurrentGame()" id="start-btn" class="px-8 py-3.5 bg-white text-[#050505] font-semibold text-xs uppercase tracking-[0.15em] rounded-full hover:bg-[#E4E4E7] active:scale-95 transition mono">
+            BEGIN
+          </button>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="mt-2 pt-3 border-t border-[#27272A] flex items-center justify-between text-[10px] text-[#71717A] mono">
+      <span id="protocol-progress">30-STAGE SUITE // hanii.mohd</span>
+      <button onclick="resetAllBests()" class="hover:text-white transition">Reset</button>
+    </footer>
+
+  </div>
+
+  <script>
+    let currentGameId = 1;
+    let gameActive = false;
+    let timerInterval = null;
+    let protocolQueue = [];
+
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playTone(freq = 440, duration = 0.06, type = 'sine') {
+      try {
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch(e) {}
+    }
+
+    const GAMES = [
+      { id: 1, key: 'schulte', name: 'Schulte Focus Grid', region: 'PARIETAL LOBE', desc: 'Lock eyes on the center dot and tap numbers 1 to 25 sequentially using peripheral vision.', s1: 'TARGET', s2: 'TIME', s3: 'BEST' },
+      { id: 2, key: 'nback', name: 'Spatial 2-Back', region: 'DORSOLATERAL PFC', desc: 'Tap MATCH when the blue flashing square matches its position exactly 2 steps ago.', s1: 'STEP', s2: 'ACCURACY', s3: 'BEST' },
+      { id: 3, key: 'stroop', name: 'Color-Word Stroop', region: 'ANTERIOR CINGULATE', desc: 'Inhibit reading! Tap the ink color while ignoring the semantic word meaning.', s1: 'SCORE', s2: 'TIME LEFT', s3: 'BEST' },
+      { id: 4, key: 'flanker', name: 'Chromatic Flanker', region: 'SELECTIVE ATTENTION', desc: 'Ignore distracting side arrows. Tap the direction of the center yellow arrow only.', s1: 'SCORE', s2: 'TIME LEFT', s3: 'BEST' },
+      { id: 5, key: 'trail', name: 'Dual Trail (1-A-2-B)', region: 'COGNITIVE FLEXIBILITY', desc: 'Alternate rapidly between blue numbers and yellow letters in ascending order.', s1: 'NEXT', s2: 'TIME', s3: 'BEST' },
+      { id: 6, key: 'corsi', name: 'Corsi Spatial Span', region: 'VISUOSPATIAL SKETCHPAD', desc: 'Watch the yellow flashing block sequence and repeat it precisely in blue.', s1: 'SPAN', s2: 'STATUS', s3: 'MAX' },
+      { id: 7, key: 'gonogo', name: 'Go / No-Go Reactor', region: 'INFERIOR FRONTAL GYRUS', desc: 'Tap immediately on blue/yellow GO signals. Slam brakes and do not tap on red STOP!', s1: 'HITS', s2: 'TRIAL', s3: 'BEST' },
+      { id: 8, key: 'posner', name: 'Posner Spatial Cueing', region: 'SUPERIOR PARIETAL', desc: 'A center arrow cues where the yellow star will appear. Tap the correct sector fast.', s1: 'SCORE', s2: 'SPEED', s3: 'BEST' },
+      { id: 9, key: 'mot', name: 'Orbit Tracker (MOT)', region: 'INTRAPARIETAL SULCUS', desc: 'Memorize 3 yellow orbs before they orbit as blue. Track and tap all 3 when they stop.', s1: 'ROUND', s2: 'STREAK', s3: 'BEST' },
+      { id: 10, key: 'digit', name: 'Parity / Magnitude Shift', region: 'PREFRONTAL EXECUTIVE', desc: 'Blue card = Even/Odd rule. Yellow card = Low/High rule. Switch instantly.', s1: 'SCORE', s2: 'TIME LEFT', s3: 'BEST' },
+      { id: 11, key: 'matrix', name: 'Raven Matrix Induction', region: 'FLUID INTELLIGENCE', desc: 'Identify the logical geometric pattern missing from the 3x3 grid matrix.', s1: 'LEVEL', s2: 'TIME', s3: 'BEST' },
+      { id: 12, key: 'rot', name: 'Mental Rotation 3D', region: 'OCCIPITO-PARIETAL', desc: 'Determine if the rotated geometric block matches the reference target shape.', s1: 'SCORE', s2: 'TIME', s3: 'BEST' },
+      { id: 13, key: 'span', name: 'Forward Digit Span', region: 'PHONOLOGICAL LOOP', desc: 'Read the expanding digit sequence and recall it in exact forward order.', s1: 'SPAN', s2: 'STATUS', s3: 'MAX' },
+      { id: 14, key: 'bspan', name: 'Backward Digit Span', region: 'CENTRAL EXECUTIVE', desc: 'Recall the flashing number sequence in exact reverse chronological order.', s1: 'SPAN', s2: 'STATUS', s3: 'MAX' },
+      { id: 15, key: 'sym', name: 'Symbol Digit Coding', region: 'PSYCHOMOTOR SPEED', desc: 'Match symbols to their corresponding digit keys based on the conversion legend.', s1: 'SCORE', s2: 'TIME LEFT', s3: 'BEST' },
+      { id: 16, key: 'arith', name: 'Rapid Mental Math', region: 'INTRAPARIETAL SULCUS', desc: 'Solve quick arithmetic equations before the countdown timer expires.', s1: 'SCORE', s2: 'TIME LEFT', s3: 'BEST' },
+      { id: 17, key: 'vigil', name: 'Vigilance Sustained Clock', region: 'LOCUS COERULEUS', desc: 'Tap whenever the radar sweep skips a tick. Tests sustained attention over time.', s1: 'HITS', s2: 'TIME', s3: 'BEST' },
+      { id: 18, key: 'lex', name: 'Lexical Decision Speed', region: 'WERNICKE & BROCA', desc: 'Instantly distinguish between real English study vocabulary and fake non-words.', s1: 'SCORE', s2: 'TIME LEFT', s3: 'BEST' },
+      { id: 19, key: 'rhythm', name: 'Tempo Pacing Metronome', region: 'CEREBELLAR TIMING', desc: 'Tap precisely in sync with the visual metronome beat to lock into flow state.', s1: 'SYNC', s2: 'BEAT', s3: 'BEST' },
+      { id: 20, key: 'zen', name: 'Alpha Wave Breath Box', region: 'PARASYMPATHETIC CORTEX', desc: 'Inhale, hold, and exhale in rhythmic 4-4-4-4 intervals to eliminate pre-study anxiety.', s1: 'CYCLE', s2: 'PHASE', s3: 'BEST' },
+      { id: 21, key: 'symbol_search', name: 'Symbol Search Speed', region: 'VISUAL DISCRIMINATION', desc: 'Determine instantly if either of the two target symbols appears in the search group.', s1: 'SCORE', s2: 'TIME LEFT', s3: 'BEST' },
+      { id: 22, key: 'odd_one_out', name: 'Matrix Odd-One-Out', region: 'ANTERIOR PREFRONTAL', desc: 'Identify and tap the abstract geometric shape that breaks the logical rule.', s1: 'SCORE', s2: 'TIME LEFT', s3: 'BEST' },
+      { id: 23, key: 'spatial_span_reverse', name: 'Reverse Corsi Span', region: 'RIGHT CEREBRAL HEMISPHERE', desc: 'Memorize the flashing block sequence and replay it in exact reverse order.', s1: 'SPAN', s2: 'STATUS', s3: 'MAX' },
+      { id: 24, key: 'number_letter_switch', name: 'Number-Letter Alternation', region: 'DORSOLATERAL GYRUS', desc: 'Alternating rule sorting: top row even/odd check, bottom row vowel/consonant check.', s1: 'SCORE', s2: 'TIME LEFT', s3: 'BEST' },
+      { id: 25, key: 'sustained_attention_go', name: 'Continuous Visual Vigilance', region: 'RETICULAR ACTIVATING SYS', desc: 'Hold tap on steady stream, lift instantly when the rare red stimulus appears.', s1: 'STREAK', s2: 'ACCURACY', s3: 'BEST' },
+      { id: 26, key: 'dual_n_back', name: 'Dual 2-Back (Audio + Spatial)', region: 'FRONTOPARIETAL NETWORK', desc: 'Track both position and spoken letter matches simultaneously for elite working memory.', s1: 'STEP', s2: 'ACCURACY', s3: 'BEST' },
+      { id: 27, key: 'subitizing', name: 'Rapid Dot Subitizing', region: 'OCCIPITAL LOBE', desc: 'Instantly perceive and tap the exact count of flashing dot clusters without counting.', s1: 'SCORE', s2: 'TIME LEFT', s3: 'BEST' },
+      { id: 28, key: 'semantic_fluency', name: 'Semantic Category Surge', region: 'TEMPORAL LOBE', desc: 'Quickly verify if each flashing study term belongs to the target knowledge category.', s1: 'SCORE', s2: 'TIME LEFT', s3: 'BEST' },
+      { id: 29, key: 'inhibition_stop_signal', name: 'Dynamic Stop-Signal Task', region: 'PREFRONTAL BRAKES', desc: 'Tap matching arrows instantly, but freeze immediately if an auditory/visual tone chimes.', s1: 'SCORE', s2: 'ACCURACY', s3: 'BEST' },
+      { id: 30, key: 'temporal_estimation', name: '10-Second Time Estimation', region: 'INSULAR CORTEX', desc: 'Start the clock and tap STOP precisely when you estimate 10.0 seconds have elapsed.', s1: 'ERROR', s2: 'CLOCK', s3: 'BEST' }
+    ];
+
+    function getGamePreviewImage(key) {
+      if (key === 'schulte') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="45" y="15" width="110" height="90" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <rect x="55" y="25" width="18" height="18" rx="2" fill="#1E1E24"/><text x="64" y="38" fill="#A1A1AA" font-size="9" font-family="monospace" text-anchor="middle">14</text>
+          <rect x="76" y="25" width="18" height="18" rx="2" fill="#1E1E24"/><text x="85" y="38" fill="#A1A1AA" font-size="9" font-family="monospace" text-anchor="middle">3</text>
+          <rect x="97" y="25" width="18" height="18" rx="2" fill="#1E1E24"/><text x="106" y="38" fill="#A1A1AA" font-size="9" font-family="monospace" text-anchor="middle">22</text>
+          <rect x="118" y="25" width="18" height="18" rx="2" fill="#1E1E24"/><text x="127" y="38" fill="#A1A1AA" font-size="9" font-family="monospace" text-anchor="middle">7</text>
+          
+          <rect x="55" y="47" width="18" height="18" rx="2" fill="#1E1E24"/><text x="64" y="60" fill="#A1A1AA" font-size="9" font-family="monospace" text-anchor="middle">9</text>
+          <rect x="76" y="47" width="18" height="18" rx="2" fill="#3B82F6"/><text x="85" y="60" fill="#FFF" font-size="10" font-family="monospace" text-anchor="middle" font-weight="bold">1</text>
+          <rect x="97" y="47" width="18" height="18" rx="2" fill="#1E1E24"/><text x="106" y="60" fill="#A1A1AA" font-size="9" font-family="monospace" text-anchor="middle">18</text>
+          <rect x="118" y="47" width="18" height="18" rx="2" fill="#1E1E24"/><text x="127" y="60" fill="#A1A1AA" font-size="9" font-family="monospace" text-anchor="middle">5</text>
+          
+          <rect x="55" y="69" width="18" height="18" rx="2" fill="#1E1E24"/><text x="64" y="82" fill="#A1A1AA" font-size="9" font-family="monospace" text-anchor="middle">11</text>
+          <rect x="76" y="69" width="18" height="18" rx="2" fill="#1E1E24"/><text x="85" y="82" fill="#A1A1AA" font-size="9" font-family="monospace" text-anchor="middle">2</text>
+          <rect x="97" y="69" width="18" height="18" rx="2" fill="#1E1E24"/><text x="106" y="82" fill="#A1A1AA" font-size="9" font-family="monospace" text-anchor="middle">25</text>
+          <rect x="118" y="69" width="18" height="18" rx="2" fill="#1E1E24"/><text x="127" y="82" fill="#A1A1AA" font-size="9" font-family="monospace" text-anchor="middle">16</text>
+          <circle cx="100" cy="60" r="2.5" fill="#EF4444"/>
+        </svg>`;
+      }
+      if (key === 'nback' || key === 'dual_n_back') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="60" y="15" width="80" height="90" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <rect x="68" y="23" width="20" height="20" rx="3" fill="#1E1E24"/>
+          <rect x="90" y="23" width="20" height="20" rx="3" fill="#3B82F6"/>
+          <rect x="112" y="23" width="20" height="20" rx="3" fill="#1E1E24"/>
+          <rect x="68" y="45" width="20" height="20" rx="3" fill="#1E1E24"/>
+          <rect x="90" y="45" width="20" height="20" rx="3" fill="#18181B"/>
+          <rect x="112" y="45" width="20" height="20" rx="3" fill="#1E1E24"/>
+          <rect x="68" y="67" width="20" height="20" rx="3" fill="#1E1E24"/>
+          <rect x="90" y="67" width="20" height="20" rx="3" fill="#1E1E24"/>
+          <rect x="112" y="67" width="20" height="20" rx="3" fill="#1E1E24"/>
+        </svg>`;
+      }
+      if (key === 'stroop') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="35" y="18" width="130" height="84" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <text x="100" y="62" fill="#3B82F6" font-size="32" font-family="monospace" text-anchor="middle" font-weight="900">RED</text>
+          <text x="100" y="85" fill="#71717A" font-size="9" font-family="monospace" text-anchor="middle">INK COLOR: BLUE</text>
+        </svg>`;
+      }
+      if (key === 'flanker') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="25" y="25" width="150" height="70" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <text x="100" y="68" fill="#EAB308" font-size="22" font-family="monospace" text-anchor="middle" font-weight="900">← ← → ← ←</text>
+        </svg>`;
+      }
+      if (key === 'trail' || key === 'number_letter_switch') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="30" y="20" width="140" height="80" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <circle cx="65" cy="60" r="16" fill="#3B82F6" opacity="0.85"/>
+          <text x="65" y="65" fill="#FFF" font-size="14" font-family="monospace" text-anchor="middle" font-weight="bold">1</text>
+          <line x1="83" y1="60" x2="117" y2="60" stroke="#71717A" stroke-dasharray="3,3" stroke-width="2"/>
+          <circle cx="135" cy="60" r="16" fill="#EAB308" opacity="0.85"/>
+          <text x="135" y="65" fill="#000" font-size="14" font-family="monospace" text-anchor="middle" font-weight="bold">A</text>
+        </svg>`;
+      }
+      if (key === 'corsi' || key === 'spatial_span_reverse') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="60" y="15" width="80" height="90" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <rect x="68" y="23" width="18" height="18" rx="3" fill="#EAB308"/>
+          <rect x="91" y="23" width="18" height="18" rx="3" fill="#18181B"/>
+          <rect x="114" y="23" width="18" height="18" rx="3" fill="#18181B"/>
+          <rect x="68" y="45" width="18" height="18" rx="3" fill="#18181B"/>
+          <rect x="91" y="45" width="18" height="18" rx="3" fill="#3B82F6"/>
+          <rect x="114" y="45" width="18" height="18" rx="3" fill="#18181B"/>
+          <rect x="68" y="67" width="18" height="18" rx="3" fill="#18181B"/>
+          <rect x="91" y="67" width="18" height="18" rx="3" fill="#18181B"/>
+          <rect x="114" y="67" width="18" height="18" rx="3" fill="#18181B"/>
+        </svg>`;
+      }
+      if (key === 'gonogo') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="40" y="15" width="120" height="90" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <circle cx="100" cy="60" r="28" fill="#EF4444"/>
+          <text x="100" y="66" fill="#FFF" font-size="14" font-family="monospace" text-anchor="middle" font-weight="900">STOP</text>
+        </svg>`;
+      }
+      if (key === 'posner') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="30" y="20" width="140" height="80" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <rect x="42" y="35" width="30" height="50" rx="4" fill="#1E1E24"/>
+          <rect x="85" y="35" width="30" height="50" rx="4" fill="#1E1E24"/>
+          <text x="100" y="65" fill="#FFF" font-size="18" font-family="monospace" text-anchor="middle">►</text>
+          <rect x="128" y="35" width="30" height="50" rx="4" fill="#3B82F6"/>
+        </svg>`;
+      }
+      if (key === 'mot') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="30" y="15" width="140" height="90" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <circle cx="70" cy="45" r="10" fill="#EAB308"/>
+          <circle cx="130" cy="55" r="10" fill="#3B82F6"/>
+          <circle cx="95" cy="80" r="10" fill="#EAB308"/>
+        </svg>`;
+      }
+      if (key === 'digit') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="55" y="15" width="90" height="90" rx="6" fill="#121216" stroke="#3B82F6" stroke-width="2"/>
+          <text x="100" y="70" fill="#FFF" font-size="40" font-family="monospace" text-anchor="middle" font-weight="900">7</text>
+        </svg>`;
+      }
+      if (key === 'matrix') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="60" y="15" width="80" height="90" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <text x="80" y="45" fill="#FFF" font-size="16" font-family="monospace" text-anchor="middle">▲</text>
+          <text x="120" y="45" fill="#FFF" font-size="16" font-family="monospace" text-anchor="middle">■</text>
+          <text x="80" y="80" fill="#FFF" font-size="16" font-family="monospace" text-anchor="middle">■</text>
+          <text x="120" y="80" fill="#71717A" font-size="16" font-family="monospace" text-anchor="middle">?</text>
+        </svg>`;
+      }
+      if (key === 'rot') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="35" y="20" width="130" height="80" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <text x="80" y="68" fill="#3B82F6" font-size="32" font-family="monospace" text-anchor="middle">📐</text>
+          <text x="120" y="68" fill="#EAB308" font-size="32" font-family="monospace" text-anchor="middle">⊿</text>
+        </svg>`;
+      }
+      if (key === 'span' || key === 'bspan') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="40" y="20" width="120" height="80" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <text x="100" y="70" fill="#FFF" font-size="42" font-family="monospace" text-anchor="middle" font-weight="900">4 8 2</text>
+        </svg>`;
+      }
+      if (key === 'sym') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="40" y="15" width="120" height="90" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <text x="100" y="55" fill="#3B82F6" font-size="36" font-family="monospace" text-anchor="middle">★</text>
+          <text x="100" y="85" fill="#71717A" font-size="11" font-family="monospace" text-anchor="middle">MATCH: ★ = 1</text>
+        </svg>`;
+      }
+      if (key === 'arith') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="35" y="20" width="130" height="80" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <text x="100" y="68" fill="#FFF" font-size="28" font-family="monospace" text-anchor="middle" font-weight="bold">8 + 7 = ?</text>
+        </svg>`;
+      }
+      if (key === 'vigil') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="60" y="15" width="80" height="90" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <circle cx="100" cy="60" r="30" fill="none" stroke="#3B82F6" stroke-width="2"/>
+          <line x1="100" y1="60" x2="120" y2="45" stroke="#FFF" stroke-width="2"/>
+        </svg>`;
+      }
+      if (key === 'lex') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="35" y="20" width="130" height="80" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <text x="100" y="68" fill="#3B82F6" font-size="28" font-family="monospace" text-anchor="middle" font-weight="bold">CORTEX</text>
+        </svg>`;
+      }
+      if (key === 'rhythm') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="50" y="20" width="100" height="80" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <circle cx="100" cy="60" r="24" fill="#3B82F6" opacity="0.3"/>
+          <circle cx="100" cy="60" r="14" fill="#3B82F6"/>
+        </svg>`;
+      }
+      if (key === 'zen') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="55" y="15" width="90" height="90" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <circle cx="100" cy="60" r="26" fill="none" stroke="#FFF" stroke-width="3" stroke-dasharray="6,4"/>
+          <text x="100" y="64" fill="#FFF" font-size="10" font-family="monospace" text-anchor="middle">INHALE</text>
+        </svg>`;
+      }
+      if (key === 'symbol_search') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="30" y="20" width="140" height="80" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <text x="70" y="68" fill="#3B82F6" font-size="28" font-family="monospace" text-anchor="middle">⌘</text>
+          <text x="130" y="68" fill="#71717A" font-size="24" font-family="monospace" text-anchor="middle">⌥ ⌘ ⌃</text>
+        </svg>`;
+      }
+      if (key === 'odd_one_out') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="50" y="15" width="100" height="90" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <text x="80" y="55" fill="#3B82F6" font-size="24" font-family="monospace" text-anchor="middle">▲</text>
+          <text x="120" y="55" fill="#3B82F6" font-size="24" font-family="monospace" text-anchor="middle">▲</text>
+          <text x="80" y="85" fill="#3B82F6" font-size="24" font-family="monospace" text-anchor="middle">▲</text>
+          <text x="120" y="85" fill="#EF4444" font-size="24" font-family="monospace" text-anchor="middle">■</text>
+        </svg>`;
+      }
+      if (key === 'number_letter_switch') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="40" y="20" width="120" height="80" rx="6" fill="#121216" stroke="#3B82F6" stroke-width="2"/>
+          <text x="100" y="68" fill="#FFF" font-size="34" font-family="monospace" text-anchor="middle" font-weight="bold">6</text>
+        </svg>`;
+      }
+      if (key === 'sustained_attention_go') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="50" y="15" width="100" height="90" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <rect x="70" y="35" width="60" height="50" rx="8" fill="#22C55E"/>
+          <text x="100" y="65" fill="#FFF" font-size="11" font-family="monospace" text-anchor="middle" font-weight="bold">HOLD</text>
+        </svg>`;
+      }
+      if (key === 'subitizing') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="40" y="15" width="120" height="90" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <circle cx="80" cy="45" r="8" fill="#FFF"/>
+          <circle cx="120" cy="45" r="8" fill="#FFF"/>
+          <circle cx="80" cy="75" r="8" fill="#FFF"/>
+          <circle cx="120" cy="75" r="8" fill="#FFF"/>
+        </svg>`;
+      }
+      if (key === 'semantic_fluency') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="35" y="20" width="130" height="80" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <text x="100" y="55" fill="#3B82F6" font-size="12" font-family="monospace" text-anchor="middle">SCIENCE</text>
+          <text x="100" y="80" fill="#FFF" font-size="24" font-family="monospace" text-anchor="middle" font-weight="bold">QUARK</text>
+        </svg>`;
+      }
+      if (key === 'inhibition_stop_signal') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="40" y="15" width="120" height="90" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <text x="100" y="70" fill="#EF4444" font-size="28" font-family="monospace" text-anchor="middle" font-weight="900">STOP</text>
+        </svg>`;
+      }
+      if (key === 'temporal_estimation') {
+        return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+          <rect x="40" y="20" width="120" height="80" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+          <text x="100" y="68" fill="#FFF" font-size="30" font-family="monospace" text-anchor="middle" font-weight="bold">10.0s</text>
+        </svg>`;
+      }
+      return `<svg viewBox="0 0 200 120" width="100%" height="100%" class="block bg-[#08080A]">
+        <rect x="40" y="20" width="120" height="80" rx="6" fill="#121216" stroke="#27272A" stroke-width="2"/>
+        <circle cx="100" cy="60" r="18" fill="#3B82F6" opacity="0.8"/>
+        <text x="100" y="65" fill="#FFF" font-size="14" font-family="monospace" text-anchor="middle" font-weight="bold">#</text>
+      </svg>`;
+    }
+
+    function openCatalogSection() {
+      const cat = document.getElementById('catalog');
+      cat.classList.remove('hidden');
+      cat.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function launchApp() {
+      document.getElementById('view-landing').classList.add('hidden');
+      document.getElementById('view-landing').classList.remove('flex');
+      document.getElementById('view-app').classList.remove('hidden');
+      document.getElementById('view-app').classList.add('flex');
+      loadGame(1);
+    }
+
+    function returnToLanding() {
+      stopAllGames();
+      document.getElementById('view-app').classList.add('hidden');
+      document.getElementById('view-app').classList.remove('flex');
+      document.getElementById('view-landing').classList.remove('hidden');
+      document.getElementById('view-landing').classList.add('flex');
+    }
+
+    function toggleGameDrawer() {
+      const drawer = document.getElementById('game-drawer');
+      drawer.classList.toggle('hidden');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const listEl = document.getElementById('landing-game-list');
+      const drawerEl = document.getElementById('drawer-grid');
+      
+      GAMES.forEach(g => {
+        const card = document.createElement('div');
+        card.className = "group bg-[#101010]/90 backdrop-blur-sm hover:bg-[#181818] border border-[#27272A] hover:border-[#3F3F46] p-5 rounded-2xl cursor-pointer transition-all duration-200 hover:-translate-y-1 flex flex-col justify-between";
+        card.onclick = () => { launchApp(); loadGame(g.id); };
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="mono text-[10px] text-[#71717A]">${String(g.id).padStart(2, '0')}</span>
+              <span class="mono text-[9px] text-[#A1A1AA]">${g.region}</span>
+            </div>
+            <div class="font-medium text-white text-sm mb-3 group-hover:text-[#E4E4E7] transition">${g.name}</div>
+            <div class="w-full h-28 rounded-xl overflow-hidden mb-3 border border-[#27272A] bg-[#050505] flex items-center justify-center">
+              ${getGamePreviewImage(g.key)}
+            </div>
+          </div>
+          <div class="text-[11px] text-[#A1A1AA] leading-relaxed line-clamp-2">${g.desc}</div>
+        `;
+        listEl.appendChild(card);
+
+        const dBtn = document.createElement('button');
+        dBtn.onclick = () => { toggleGameDrawer(); loadGame(g.id); };
+        dBtn.className = "p-2 bg-[#050505] hover:bg-[#181818] border border-[#27272A] rounded-xl text-left transition flex flex-col";
+        dBtn.innerHTML = `
+          <span class="mono text-[9px] text-[#71717A]">${String(g.id).padStart(2, '0')}</span>
+          <span class="font-medium text-white text-[11px] truncate">${g.name}</span>
+        `;
+        drawerEl.appendChild(dBtn);
+      });
+    });
+
+    function loadGame(id) {
+      stopAllGames();
+      currentGameId = id;
+      const g = GAMES.find(x => x.id === id);
+      
+      document.getElementById('app-header-title').innerText = g.name;
+      document.getElementById('app-header-sub').innerText = `${String(g.id).padStart(2, '0')} / 30`;
+      document.getElementById('mode-title').innerText = g.name;
+      document.getElementById('brain-region').innerText = g.region;
+      document.getElementById('mode-desc').innerText = g.desc;
+      document.getElementById('stat1-label').innerText = g.s1;
+      document.getElementById('stat2-label').innerText = g.s2;
+      document.getElementById('stat3-label').innerText = g.s3;
+
+      updateBestDisplay();
+      showOverlay(g.name, g.desc, "BEGIN", g.region);
+    }
+
+    function updateBestDisplay() {
+      const g = GAMES.find(x => x.id === currentGameId);
+      const best = localStorage.getItem(`np_best_${g.key}`);
+      document.getElementById('stat1-val').innerText = g.id === 1 ? '1' : (g.id === 6 || g.id === 13 || g.id === 14 || g.id === 23 ? '3' : '0');
+      document.getElementById('stat2-val').innerText = g.id === 1 || g.id === 5 ? '0.0s' : (['stroop','flanker','digit','arith','lex','symbol_search','odd_one_out','number_letter_switch','subitizing','semantic_fluency'].includes(g.key) ? '25s' : 'READY');
+      document.getElementById('stat3-val').innerText = best || '--';
+    }
+
+    function showOverlay(title, sub, btnText, tag = "NEURAL WARMUP") {
+      document.getElementById('overlay-tag').innerText = tag;
+      document.getElementById('overlay-title').innerText = title;
+      document.getElementById('overlay-sub').innerText = sub;
+      document.getElementById('start-btn').innerText = btnText;
+      document.getElementById('overlay').classList.remove('hidden');
+    }
+
+    function hideOverlay() {
+      document.getElementById('overlay').classList.add('hidden');
+    }
+
+    function stopAllGames() {
+      gameActive = false;
+      clearInterval(timerInterval);
+      if (window.nbInt) clearInterval(window.nbInt);
+      if (window.vigilInt) clearInterval(window.vigilInt);
+      if (window.gTimeout) clearTimeout(window.gTimeout);
+      if (window.saTimeout) clearTimeout(window.saTimeout);
+      if (window.d2Int) clearTimeout(window.d2Int);
+      if (window.subInt) clearTimeout(window.subInt);
+      if (window.semInt) clearTimeout(window.semInt);
+      if (window.stopInt) clearTimeout(window.stopInt);
+      if (window.tempInt) clearTimeout(window.tempInt);
+      if (window.z1) clearTimeout(window.z1);
+      if (window.z2) clearTimeout(window.z2);
+      if (window.z3) clearTimeout(window.z3);
+      if (window.z4) clearTimeout(window.z4);
+    }
+
+    function startFullProtocol() {
+      protocolQueue = [];
+      for(let i=2; i<=30; i++) protocolQueue.push(i);
+      loadGame(1);
+      startCurrentGame();
+      document.getElementById('protocol-progress').innerText = "⚡ 30-IN-1 PROTOCOL ACTIVE (STAGE 1/30)";
+    }
+
+    function completeStage(title, summary, tag) {
+      if (protocolQueue.length > 0) {
+        const nextId = protocolQueue.shift();
+        const stageNum = 31 - protocolQueue.length;
+        document.getElementById('protocol-progress').innerText = `⚡ 30-IN-1 PROTOCOL ACTIVE (STAGE ${stageNum}/30)`;
+        loadGame(nextId);
+        showOverlay(`${title} Done!`, `Up next: ${GAMES.find(x=>x.id===nextId).name}`, `START STAGE ${stageNum} →`, `PROTOCOL ${stageNum}/30`);
+      } else {
+        document.getElementById('protocol-progress').innerText = "30-STAGE PROTOCOL COMPLETE ✓";
+        showOverlay(title, summary, "RESTART SUITE", tag);
+      }
+    }
+
+    function startCurrentGame() {
+      hideOverlay();
+      gameActive = true;
+      playTone(520, 0.08);
+      
+      const container = document.getElementById('game-container');
+      container.innerHTML = '';
+
+      const g = GAMES.find(x => x.id === currentGameId);
+      if (g.key === 'schulte') initSchulte(container);
+      else if (g.key === 'nback') initNBack(container);
+      else if (g.key === 'stroop') initStroop(container);
+      else if (g.key === 'flanker') initFlanker(container);
+      else if (g.key === 'trail') initTrail(container);
+      else if (g.key === 'corsi') initCorsi(container);
+      else if (g.key === 'gonogo') initGoNoGo(container);
+      else if (g.key === 'posner') initPosner(container);
+      else if (g.key === 'mot') initMOT(container);
+      else if (g.key === 'digit') initDigitShift(container);
+      else if (g.key === 'matrix') initMatrix(container);
+      else if (g.key === 'rot') initRotation(container);
+      else if (g.key === 'span') initDigitSpan(container, false);
+      else if (g.key === 'bspan') initDigitSpan(container, true);
+      else if (g.key === 'sym') initSymbolCoding(container);
+      else if (g.key === 'arith') initArithmetic(container);
+      else if (g.key === 'vigil') initVigilance(container);
+      else if (g.key === 'lex') initLexical(container);
+      else if (g.key === 'rhythm') initRhythm(container);
+      else if (g.key === 'zen') initZen(container);
+      else if (g.key === 'symbol_search') initSymbolSearch(container);
+      else if (g.key === 'odd_one_out') initOddOneOut(container);
+      else if (g.key === 'spatial_span_reverse') initReverseCorsi(container);
+      else if (g.key === 'number_letter_switch') initNumberLetterSwitch(container);
+      else if (g.key === 'sustained_attention_go') initSustainedAttention(container);
+      else if (g.key === 'dual_n_back') initDualNBack(container);
+      else if (g.key === 'subitizing') initSubitizing(container);
+      else if (g.key === 'semantic_fluency') initSemanticFluency(container);
+      else if (g.key === 'inhibition_stop_signal') initStopSignal(container);
+      else if (g.key === 'temporal_estimation') initTemporalEstimation(container);
+    }
+
+    function resetAllBests() {
+      GAMES.forEach(g => localStorage.removeItem(`np_best_${g.key}`));
+      updateBestDisplay();
+    }
+
+
+    // =========================================================================
+    // GAMEPLAY IMPLEMENTATIONS (1 TO 30)
+    // =========================================================================
+
+    function initSchulte(container) {
+      container.className = "w-full h-full grid grid-cols-5 gap-1.5";
+      let target = 1;
+      let startTime = performance.now();
+      const nums = Array.from({length: 25}, (_, i) => i + 1).sort(() => Math.random() - 0.5);
+
+      nums.forEach((n, idx) => {
+        const btn = document.createElement('button');
+        const centerRing = idx === 12 ? "ring-1 ring-white/40" : "border-[#27272A]";
+        btn.className = `grid-cell bg-[#101010] border ${centerRing} rounded-lg mono text-sm font-bold text-white flex items-center justify-center`;
+        btn.innerText = n;
+        btn.onclick = () => {
+          if (!gameActive) return;
+          if (n === target) {
+            playTone(400 + n * 15, 0.05);
+            btn.className = "grid-cell bg-[#050505] border border-[#27272A] text-[#71717A] rounded-lg mono text-sm flex items-center justify-center";
+            target++;
+            if (target > 25) {
+              gameActive = false;
+              clearInterval(timerInterval);
+              const t = ((performance.now() - startTime)/1000).toFixed(2);
+              const prev = localStorage.getItem('np_best_schulte');
+              if (!prev || parseFloat(t) < parseFloat(prev)) localStorage.setItem('np_best_schulte', `${t}s`);
+              updateBestDisplay();
+              completeStage(`${t}s Schulte`, "Visual attention primed.", "COMPLETE");
+            } else {
+              document.getElementById('stat1-val').innerText = target;
+            }
+          } else {
+            playTone(150, 0.1, 'sawtooth');
+            btn.classList.add('flash-red');
+            setTimeout(() => btn.classList.remove('flash-red'), 150);
+          }
+        };
+        container.appendChild(btn);
+      });
+
+      timerInterval = setInterval(() => {
+        document.getElementById('stat2-val').innerText = `${((performance.now() - startTime)/1000).toFixed(1)}s`;
+      }, 100);
+    }
+
+    function initNBack(container) {
+      container.className = "w-full h-full flex flex-col justify-between";
+      container.innerHTML = `
+        <div class="grid grid-cols-3 gap-2 w-full flex-1 p-1">
+          ${Array.from({length:9}, () => `<div class="nback-cell bg-[#101010] border border-[#27272A] rounded-xl"></div>`).join('')}
+        </div>
+        <button id="nb-btn" class="mt-2 w-full py-3.5 bg-white text-[#050505] font-semibold uppercase tracking-widest text-xs rounded-xl">MATCH (2 AGO)</button>
+      `;
+      let history = [], step = 0, mistakes = 0, responded = false;
+      const total = 16;
+      
+      const runStep = () => {
+        if (!gameActive) return;
+        if (step >= 3 && !responded && history[step-1] === history[step-3]) mistakes++;
+        if (step >= total) {
+          gameActive = false;
+          clearInterval(window.nbInt);
+          const acc = Math.max(0, Math.round(((Math.max(1, step-2) - mistakes)/Math.max(1, step-2))*100));
+          localStorage.setItem('np_best_nback', `${acc}%`);
+          updateBestDisplay();
+          completeStage(`${acc}% Accuracy`, "Working memory expanded.", "COMPLETE");
+          return;
+        }
+        responded = false;
+        document.querySelectorAll('.nback-cell').forEach(c => c.className = "nback-cell bg-[#101010] border border-[#27272A] rounded-xl");
+        let pos = (step >= 2 && Math.random() < 0.4) ? history[step-2] : Math.floor(Math.random()*9);
+        history.push(pos);
+        step++;
+        document.getElementById('stat1-val').innerText = `${step}/${total}`;
+        setTimeout(() => {
+          if(!gameActive) return;
+          document.querySelectorAll('.nback-cell')[pos].className = "nback-cell bg-white border border-white rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.4)]";
+          playTone(350, 0.05);
+        }, 150);
+      };
+
+      document.getElementById('nb-btn').onclick = () => {
+        if (!gameActive || step < 3 || responded) return;
+        responded = true;
+        if (history[history.length-1] === history[history.length-3]) {
+          playTone(700, 0.06);
+          document.getElementById('nb-btn').innerText = "CORRECT ✓";
+        } else {
+          mistakes++;
+          playTone(150, 0.1, 'sawtooth');
+          document.getElementById('nb-btn').innerText = "FALSE ✕";
+        }
+        setTimeout(() => document.getElementById('nb-btn').innerText = "MATCH (2 AGO)", 500);
+      };
+
+      runStep();
+      window.nbInt = setInterval(runStep, 2000);
+    }
+
+    function initStroop(container) {
+      container.className = "w-full h-full flex flex-col justify-between py-2";
+      let score = 0, time = 25, ans = '';
+      const colors = {RED: '#EF4444', BLUE: '#3B82F6', YELLOW: '#EAB308'};
+      const keys = Object.keys(colors);
+
+      container.innerHTML = `
+        <div class="text-center"><span class="mono text-[10px] bg-[#101010] border border-[#27272A] px-3 py-1 rounded-full text-[#A1A1AA]">TAP INK COLOR</span></div>
+        <div id="stroop-word" class="mono text-5xl font-black uppercase">RED</div>
+        <div class="grid grid-cols-3 gap-2 w-full">
+          <button onclick="submitStroopGame('RED')" class="py-3 bg-[#101010] border border-[#27272A] text-white font-bold rounded-xl text-xs">RED</button>
+          <button onclick="submitStroopGame('BLUE')" class="py-3 bg-[#101010] border border-[#27272A] text-white font-bold rounded-xl text-xs">BLUE</button>
+          <button onclick="submitStroopGame('YELLOW')" class="py-3 bg-[#101010] border border-[#27272A] text-white font-bold rounded-xl text-xs">YELLOW</button>
+        </div>
+      `;
+
+      window.submitStroopGame = (choice) => {
+        if (!gameActive) return;
+        if (choice === ans) { score++; playTone(600, 0.04); }
+        else { score = Math.max(0, score-1); playTone(150, 0.1, 'sawtooth'); }
+        document.getElementById('stat1-val').innerText = score;
+        nextCard();
+      };
+
+      const nextCard = () => {
+        const text = keys[Math.floor(Math.random()*3)];
+        const ink = keys.filter(k => k !== text)[Math.floor(Math.random()*2)];
+        ans = ink;
+        const wEl = document.getElementById('stroop-word');
+        if(wEl) { wEl.innerText = text; wEl.style.color = colors[ink]; }
+      };
+
+      nextCard();
+      timerInterval = setInterval(() => {
+        time--;
+        document.getElementById('stat2-val').innerText = `${time}s`;
+        if(time <= 0) {
+          gameActive = false;
+          clearInterval(timerInterval);
+          localStorage.setItem('np_best_stroop', score);
+          updateBestDisplay();
+          completeStage(`${score} Filters`, "Anterior cingulate primed.", "COMPLETE");
+        }
+      }, 1000);
+    }
+
+    function initFlanker(container) {
+      container.className = "w-full h-full flex flex-col justify-between py-2";
+      let score = 0, time = 25, ans = '';
+      container.innerHTML = `
+        <div class="text-center"><span class="mono text-[10px] bg-[#101010] border border-[#27272A] px-3 py-1 rounded-full text-[#A1A1AA]">TAP CENTER ARROW</span></div>
+        <div id="flanker-box" class="mono text-4xl font-black tracking-widest bg-[#101010] border border-[#27272A] px-6 py-6 rounded-2xl text-white">← ← → ← ←</div>
+        <div class="grid grid-cols-2 gap-2 w-full">
+          <button onclick="submitFlankerGame('LEFT')" class="py-3.5 bg-[#101010] border border-[#27272A] text-white font-bold rounded-xl text-xs">← LEFT</button>
+          <button onclick="submitFlankerGame('RIGHT')" class="py-3.5 bg-[#101010] border border-[#27272A] text-white font-bold rounded-xl text-xs">RIGHT →</button>
+        </div>
+      `;
+
+      window.submitFlankerGame = (dir) => {
+        if (!gameActive) return;
+        if (dir === ans) { score++; playTone(620, 0.04); }
+        else { score = Math.max(0, score-1); playTone(150, 0.1, 'sawtooth'); }
+        document.getElementById('stat1-val').innerText = score;
+        nextF();
+      };
+
+      const nextF = () => {
+        const c = Math.random() < 0.5 ? 'LEFT' : 'RIGHT';
+        ans = c;
+        const s = Math.random() < 0.5 ? 'LEFT' : 'RIGHT';
+        const cSym = c === 'LEFT' ? '←' : '→';
+        const sSym = s === 'LEFT' ? '←' : '→';
+        const el = document.getElementById('flanker-box');
+        if(el) el.innerHTML = `<span>${sSym} ${sSym}</span> <span class="text-white px-1 underline">${cSym}</span> <span>${sSym} ${sSym}</span>`;
+      };
+
+      nextF();
+      timerInterval = setInterval(() => {
+        time--;
+        document.getElementById('stat2-val').innerText = `${time}s`;
+        if(time <= 0) {
+          gameActive = false;
+          clearInterval(timerInterval);
+          localStorage.setItem('np_best_flanker', score);
+          updateBestDisplay();
+          completeStage(`${score} Flankers`, "Attention network active.", "COMPLETE");
+        }
+      }, 1000);
+    }
+
+    function initTrail(container) {
+      container.className = "w-full h-full grid grid-cols-4 gap-2";
+      const seq = ['1','A','2','B','3','C','4','D','5','E','6','F','7','G','8','H'];
+      let idx = 0, start = performance.now();
+      const shuffled = [...seq].sort(() => Math.random() - 0.5);
+
+      shuffled.forEach(t => {
+        const btn = document.createElement('button');
+        btn.className = "grid-cell bg-[#101010] border border-[#27272A] rounded-xl mono text-base font-extrabold text-white flex items-center justify-center";
+        btn.innerText = t;
+        btn.onclick = () => {
+          if (!gameActive) return;
+          if (t === seq[idx]) {
+            playTone(400 + idx * 30, 0.05);
+            btn.className = "grid-cell bg-[#050505] border border-[#27272A] text-[#71717A] rounded-xl mono text-base flex items-center justify-center";
+            idx++;
+            if (idx >= seq.length) {
+              gameActive = false;
+              clearInterval(timerInterval);
+              const tEl = ((performance.now()-start)/1000).toFixed(2);
+              localStorage.setItem('np_best_trail', `${tEl}s`);
+              updateBestDisplay();
+              completeStage(`${tEl}s Trail`, "Cognitive flexibility primed.", "COMPLETE");
+            } else {
+              document.getElementById('stat1-val').innerText = seq[idx];
+            }
+          } else {
+            playTone(150, 0.1, 'sawtooth');
+            btn.classList.add('flash-red');
+            setTimeout(() => btn.classList.remove('flash-red'), 150);
+          }
+        };
+        container.appendChild(btn);
+      });
+
+      timerInterval = setInterval(() => {
+        document.getElementById('stat2-val').innerText = `${((performance.now()-start)/1000).toFixed(1)}s`;
+      }, 100);
+    }
+
+    function initCorsi(container) {
+      container.className = "w-full h-full flex flex-col justify-between";
+      container.innerHTML = `
+        <div class="text-center mb-1"><span id="c-status" class="mono text-[10px] text-white font-bold">WATCH SEQUENCE...</span></div>
+        <div id="c-grid" class="w-full flex-1 grid grid-cols-3 gap-2 p-1"></div>
+      `;
+      let span = 3, seq = [], userStep = 0, locked = true;
+      const grid = document.getElementById('c-grid');
+
+      for(let i=0; i<9; i++) {
+        const b = document.createElement('button');
+        b.className = "bg-[#101010] border border-[#27272A] rounded-xl transition";
+        b.onclick = () => {
+          if(!gameActive || locked) return;
+          b.className = "bg-white border border-white rounded-xl shadow-[0_0_15px_rgba(255,255,255,0.6)]";
+          setTimeout(() => b.className = "bg-[#101010] border border-[#27272A] rounded-xl", 200);
+          if(i === seq[userStep]) {
+            playTone(500 + userStep*40, 0.05);
+            userStep++;
+            if(userStep >= seq.length) {
+              locked = true;
+              localStorage.setItem('np_best_corsi', span);
+              updateBestDisplay();
+              span++;
+              document.getElementById('c-status').innerText = "LEVEL CLEARED ✓";
+              setTimeout(runRound, 1000);
+            }
+          } else {
+            playTone(150, 0.15, 'sawtooth');
+            gameActive = false;
+            completeStage(`Span ${span-1}`, "Visuospatial sketchpad warmed.", "COMPLETE");
+          }
+        };
+        grid.appendChild(b);
+      }
+
+      const runRound = () => {
+        if(!gameActive) return;
+        locked = true; userStep = 0; seq = [];
+        document.getElementById('stat1-val').innerText = `${span} TILES`;
+        document.getElementById('stat2-val').innerText = "WATCH";
+        while(seq.length < span) {
+          const r = Math.floor(Math.random()*9);
+          if(seq[seq.length-1] !== r) seq.push(r);
+        }
+        const cells = grid.children;
+        seq.forEach((p, idx) => {
+          setTimeout(() => {
+            if(!gameActive) return;
+            cells[p].className = "bg-white border border-white rounded-xl shadow-[0_0_15px_rgba(255,255,255,0.6)]";
+            playTone(400 + idx*40, 0.06);
+            setTimeout(() => cells[p].className = "bg-[#101010] border border-[#27272A] rounded-xl", 400);
+          }, (idx+1)*600);
+        });
+        setTimeout(() => {
+          if(!gameActive) return;
+          locked = false;
+          document.getElementById('stat2-val').innerText = "REPEAT";
+          document.getElementById('c-status').innerText = "YOUR TURN";
+        }, (seq.length+1)*600);
+      };
+      runRound();
+    }
+
+    function initGoNoGo(container) {
+      container.className = "w-full h-full flex flex-col justify-between p-2";
+      let trial = 0, score = 0, state = 'IDLE', tapped = false, stimTime = 0;
+      container.innerHTML = `
+        <div class="flex justify-between w-full mono text-[10px] text-[#A1A1AA]"><span>GO: TAP</span><span>STOP: DON'T TAP</span></div>
+        <div class="flex-1 flex items-center justify-center">
+          <button id="gonogo-core" class="w-36 h-36 rounded-full bg-[#101010] border-4 border-[#27272A] flex flex-col items-center justify-center shadow-2xl active:scale-95 transition">
+            <span id="g-sym" class="mono text-2xl font-black text-[#71717A]">READY</span>
+          </button>
+        </div>
+        <div class="mono text-[10px] text-[#A1A1AA] text-center" id="g-rt">-- ms</div>
+      `;
+
+      const nextTrial = () => {
+        if (!gameActive) return;
+        if (trial >= 14) {
+          gameActive = false;
+          localStorage.setItem('np_best_gonogo', score);
+          updateBestDisplay();
+          completeStage(`${score}/14 Score`, "Motor impulse control primed.", "COMPLETE");
+          return;
+        }
+        state = 'IDLE'; tapped = false;
+        const core = document.getElementById('gonogo-core');
+        const sym = document.getElementById('g-sym');
+        core.className = "w-36 h-36 rounded-full bg-[#101010] border-4 border-[#27272A] flex flex-col items-center justify-center";
+        sym.innerText = "WAIT"; sym.className = "mono text-xl text-[#71717A]";
+
+        setTimeout(() => {
+          if(!gameActive) return;
+          trial++;
+          document.getElementById('stat2-val').innerText = `${trial}/14`;
+          const r = Math.random();
+          if(r < 0.6) {
+            state = 'GO'; core.className = "w-36 h-36 rounded-full bg-white border-4 border-[#27272A] flex flex-col items-center justify-center";
+            sym.innerText = "GO!"; sym.className = "mono text-3xl text-black font-black"; playTone(500,0.04);
+          } else {
+            state = 'STOP'; core.className = "w-36 h-36 rounded-full bg-neutral-900 border-4 border-red-500 flex flex-col items-center justify-center";
+            sym.innerText = "STOP"; sym.className = "mono text-2xl text-red-500 font-black"; playTone(200,0.06);
+          }
+          stimTime = performance.now();
+
+          window.gTimeout = setTimeout(() => {
+            if(!gameActive) return;
+            if(state === 'STOP' && !tapped) { score++; document.getElementById('stat1-val').innerText = score; document.getElementById('g-rt').innerText = "BRAKED ✓"; }
+            nextTrial();
+          }, 900);
+        }, 700 + Math.random()*600);
+      };
+
+      document.getElementById('gonogo-core').onclick = () => {
+        if(!gameActive || tapped) return;
+        tapped = true;
+        if(state === 'GO') {
+          const rt = Math.round(performance.now() - stimTime);
+          score++; playTone(750,0.05);
+          document.getElementById('stat1-val').innerText = score;
+          document.getElementById('g-rt').innerText = `${rt}ms`;
+          clearTimeout(window.gTimeout);
+          setTimeout(nextTrial, 300);
+        } else if(state === 'STOP') {
+          score = Math.max(0, score-2); playTone(150,0.15,'sawtooth');
+          document.getElementById('stat1-val').innerText = score;
+          document.getElementById('g-rt').innerText = "ERROR (-2)";
+          clearTimeout(window.gTimeout);
+          setTimeout(nextTrial, 400);
+        }
+      };
+      nextTrial();
+    }
+
+    function initPosner(container) {
+      container.className = "w-full h-full flex flex-col justify-between p-2";
+      let trial = 0, hits = 0, targetSide = '', stimTime = 0, rts = [];
+      container.innerHTML = `
+        <div class="flex justify-between w-full mono text-[9px] text-[#A1A1AA]"><span>FIXATE CENTER</span><span>TAP TARGET</span></div>
+        <div class="grid grid-cols-3 gap-2 flex-1 items-center my-2 w-full">
+          <button id="p-l" class="h-32 bg-[#101010] border border-[#27272A] rounded-2xl flex items-center justify-center text-3xl font-black"></button>
+          <div class="h-24 bg-[#050505] border border-[#27272A] rounded-2xl flex flex-col items-center justify-center">
+            <span id="p-cue" class="mono text-3xl text-white">+</span>
+          </div>
+          <button id="p-r" class="h-32 bg-[#101010] border border-[#27272A] rounded-2xl flex items-center justify-center text-3xl font-black"></button>
+        </div>
+        <div id="p-msg" class="text-center mono text-xs text-[#A1A1AA]">WAITING...</div>
+      `;
+
+      const nextP = () => {
+        if(!gameActive) return;
+        if(trial >= 12) {
+          gameActive = false;
+          const avg = rts.length ? Math.round(rts.reduce((a,b)=>a+b,0)/rts.length) : 500;
+          localStorage.setItem('np_best_posner', `${avg}ms`);
+          updateBestDisplay();
+          completeStage(`${avg}ms Posner Speed`, "Parietal orienting primed.", "COMPLETE");
+          return;
+        }
+        targetSide = '';
+        document.getElementById('p-l').innerHTML = '';
+        document.getElementById('p-r').innerHTML = '';
+        document.getElementById('p-cue').innerText = '+';
+        
+        setTimeout(() => {
+          if(!gameActive) return;
+          const cue = Math.random() < 0.5 ? 'L' : 'R';
+          document.getElementById('p-cue').innerText = cue === 'L' ? '◄' : '►';
+          playTone(400,0.03);
+
+          setTimeout(() => {
+            if(!gameActive) return;
+            trial++;
+            targetSide = cue;
+            stimTime = performance.now();
+            document.getElementById(cue === 'L' ? 'p-l' : 'p-r').innerHTML = `<span class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center text-xl">●</span>`;
+          }, 350);
+        }, 600);
+      };
+
+      const handleTap = (s) => {
+        if(!gameActive || !targetSide) return;
+        const rt = Math.round(performance.now() - stimTime);
+        if(s === targetSide) {
+          hits++; rts.push(rt); playTone(700,0.05);
+          document.getElementById('stat1-val').innerText = `${hits}/12`;
+          document.getElementById('stat2-val').innerText = `${rt}ms`;
+        } else {
+          playTone(150,0.1,'sawtooth');
+        }
+        targetSide = '';
+        setTimeout(nextP, 300);
+      };
+
+      document.getElementById('p-l').onclick = () => handleTap('L');
+      document.getElementById('p-r').onclick = () => handleTap('R');
+      nextP();
+    }
+
+    function initMOT(container) {
+      container.className = "w-full h-full flex flex-col justify-between";
+      container.innerHTML = `
+        <div class="flex items-center justify-between bg-[#101010] border border-[#27272A] px-3 py-1 rounded-lg mono text-[10px] mb-1">
+          <span id="mot-txt" class="text-white font-bold">1. MEMORIZE 3 TARGETS</span>
+          <span id="mot-count" class="text-[#A1A1AA]">0/3</span>
+        </div>
+        <div class="relative flex-1 w-full bg-[#050505] border border-[#27272A] rounded-xl overflow-hidden">
+          <canvas id="mot-canvas" class="w-full h-full block cursor-pointer"></canvas>
+        </div>
+      `;
+      let round = 1, score = 0, state = 'CUE', picks = 0, balls = [], raf = null;
+      const canvas = document.getElementById('mot-canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = 280; canvas.height = 240;
+
+      const initRound = () => {
+        if(!gameActive) return;
+        balls = []; picks = 0; state = 'CUE';
+        document.getElementById('mot-count').innerText = `0/3`;
+        document.getElementById('mot-txt').innerText = "1. MEMORIZE 3 TARGETS";
+
+        for(let i=0; i<7; i++) {
+          const a = Math.random()*Math.PI*2;
+          const s = 2 + round*0.4;
+          balls.push({
+            x: 30 + Math.random()*(canvas.width-60),
+            y: 30 + Math.random()*(canvas.height-60),
+            vx: Math.cos(a)*s, vy: Math.sin(a)*s, r: 14,
+            isTarget: i < 3, selected: false
+          });
+        }
+
+        const loop = () => {
+          if(!gameActive) return;
+          ctx.clearRect(0,0,canvas.width,canvas.height);
+          balls.forEach(b => {
+            if(state === 'MOVE') {
+              b.x += b.vx; b.y += b.vy;
+              if(b.x < b.r || b.x > canvas.width-b.r) b.vx *= -1;
+              if(b.y < b.r || b.y > canvas.height-b.r) b.vy *= -1;
+            }
+            ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI*2);
+            ctx.fillStyle = (state === 'CUE' && b.isTarget) ? '#FFFFFF' : (b.selected ? '#71717A' : '#333333');
+            ctx.fill();
+          });
+          if(state !== 'PICK') raf = requestAnimationFrame(loop);
+        };
+        loop();
+
+        setTimeout(() => {
+          if(!gameActive) return;
+          state = 'MOVE';
+          document.getElementById('mot-txt').innerText = "2. TRACK ORBS...";
+          setTimeout(() => {
+            if(!gameActive) return;
+            state = 'PICK';
+            document.getElementById('mot-txt').innerText = "3. TAP 3 TARGETS!";
+            cancelAnimationFrame(raf);
+            loop();
+          }, 3500);
+        }, 2000);
+      };
+
+      canvas.onpointerdown = (e) => {
+        if(!gameActive || state !== 'PICK') return;
+        const rect = canvas.getBoundingClientRect();
+        const x = (e.clientX - rect.left) * (canvas.width/rect.width);
+        const y = (e.clientY - rect.top) * (canvas.height/rect.height);
+
+        balls.forEach(b => {
+          if(!b.selected && Math.hypot(b.x-x, b.y-y) <= b.r+10) {
+            b.selected = true; picks++;
+            document.getElementById('mot-count').innerText = `${picks}/3`;
+            if(b.isTarget) { score++; playTone(650,0.05); } else { playTone(150,0.1,'sawtooth'); }
+            document.getElementById('stat2-val').innerText = score;
+            
+            if(picks >= 3) {
+              setTimeout(() => {
+                if(round < 3) { round++; document.getElementById('stat1-val').innerText = `${round}/3`; initRound(); }
+                else {
+                  gameActive = false;
+                  localStorage.setItem('np_best_mot', score);
+                  updateBestDisplay();
+                  completeStage(`${score}/9 Orbs`, "Intraparietal tracking active.", "COMPLETE");
+                }
+              }, 600);
+            }
+          }
+        });
+      };
+      initRound();
+    }
+
+    function initDigitShift(container) {
+      container.className = "w-full h-full flex flex-col justify-between p-2";
+      let score = 0, time = 25, rule = 'PARITY', num = 7;
+      container.innerHTML = `
+        <div class="grid grid-cols-2 gap-2 mono text-[10px]">
+          <div id="rule-b" class="p-2 rounded-xl border border-white bg-[#101010] text-white text-center font-bold">EVEN / ODD</div>
+          <div id="rule-y" class="p-2 rounded-xl border border-[#27272A] bg-[#050505] text-[#71717A] text-center font-bold">LOW / HIGH</div>
+        </div>
+        <div class="flex-1 flex items-center justify-center my-2">
+          <div id="d-card" class="w-32 h-32 rounded-3xl border-4 border-white bg-[#101010] flex flex-col items-center justify-center shadow-2xl">
+            <span id="d-num" class="mono text-5xl font-black text-white">7</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="submitShift('LEFT')" class="py-3 bg-[#101010] border border-[#27272A] rounded-xl mono text-xs font-bold text-white">EVEN / LOW(&lt;5)</button>
+          <button onclick="submitShift('RIGHT')" class="py-3 bg-[#101010] border border-[#27272A] rounded-xl mono text-xs font-bold text-white">ODD / HIGH(&gt;5)</button>
+        </div>
+      `;
+
+      const nextCard = () => {
+        num = [1,2,3,4,6,7,8,9][Math.floor(Math.random()*8)];
+        rule = Math.random() < 0.5 ? 'PARITY' : 'MAGNITUDE';
+        document.getElementById('d-num').innerText = num;
+      };
+
+      window.submitShift = (side) => {
+        if(!gameActive) return;
+        let correct = rule === 'PARITY' ? ((num%2===0)?'LEFT':'RIGHT') : ((num<5)?'LEFT':'RIGHT');
+        if(side === correct) { score++; playTone(600,0.04); }
+        else { score = Math.max(0, score-1); playTone(150,0.1,'sawtooth'); }
+        document.getElementById('stat1-val').innerText = score;
+        nextCard();
+      };
+
+      nextCard();
+      timerInterval = setInterval(() => {
+        time--; document.getElementById('stat2-val').innerText = `${time}s`;
+        if(time <= 0) {
+          gameActive = false; clearInterval(timerInterval);
+          localStorage.setItem('np_best_digit', score);
+          updateBestDisplay();
+          completeStage(`${score} Shifts`, "Executive set-shifting active.", "COMPLETE");
+        }
+      }, 1000);
+    }
+
+    function initMatrix(container) {
+      container.className = "w-full h-full flex flex-col justify-between p-2";
+      let level = 1, score = 0;
+      container.innerHTML = `
+        <div class="grid grid-cols-3 gap-1 bg-[#101010] p-2 rounded-xl w-36 mx-auto mb-2 text-center mono text-lg font-black text-white">
+          <div>▲</div><div>■</div><div>◆</div>
+          <div>■</div><div>◆</div><div>▲</div>
+          <div>◆</div><div>▲</div><div class="text-[#71717A]">?</div>
+        </div>
+        <div class="grid grid-cols-3 gap-2 w-full">
+          <button onclick="submitMatrix('■')" class="py-3 bg-[#101010] border border-[#27272A] rounded-xl font-bold text-lg text-white">■</button>
+          <button onclick="submitMatrix('▲')" class="py-3 bg-[#101010] border border-[#27272A] rounded-xl font-bold text-lg text-white">▲</button>
+          <button onclick="submitMatrix('◆')" class="py-3 bg-[#101010] border border-[#27272A] rounded-xl font-bold text-lg text-white">◆</button>
+        </div>
+      `;
+
+      window.submitMatrix = (ans) => {
+        if(!gameActive) return;
+        if(ans === '■') {
+          score++; playTone(700,0.05); level++;
+          if(level > 5) {
+            gameActive = false;
+            localStorage.setItem('np_best_matrix', `Lvl ${level-1}`);
+            updateBestDisplay();
+            completeStage(`Level ${level-1} Matrix`, "Fluid intelligence primed.", "COMPLETE");
+          } else { document.getElementById('stat1-val').innerText = `Lvl ${level}`; }
+        } else { playTone(150,0.1,'sawtooth'); }
+      };
+    }
+
+    function initRotation(container) {
+      container.className = "w-full h-full flex flex-col justify-between p-2";
+      let score = 0, isMatch = true;
+      container.innerHTML = `
+        <div class="flex justify-around items-center w-full flex-1">
+          <div class="text-center"><span class="mono text-[9px] text-[#A1A1AA] block mb-1">TARGET</span><div id="rot-ref" class="text-5xl">📐</div></div>
+          <div class="text-center"><span class="mono text-[9px] text-[#A1A1AA] block mb-1">PROBE</span><div id="rot-probe" class="text-5xl">🔲</div></div>
+        </div>
+        <div class="grid grid-cols-2 gap-2 w-full">
+          <button onclick="submitRot(true)" class="py-3 bg-white text-black font-bold rounded-xl text-xs">SAME SHAPE ✓</button>
+          <button onclick="submitRot(false)" class="py-3 bg-[#101010] border border-[#27272A] text-white font-bold rounded-xl text-xs">DIFFERENT ✕</button>
+        </div>
+      `;
+      const shapes = ['📐','📊','📉','📌','📍','📎'];
+
+      const nextRot = () => {
+        isMatch = Math.random() < 0.5;
+        const s1 = shapes[Math.floor(Math.random()*shapes.length)];
+        const s2 = isMatch ? s1 : shapes[Math.floor(Math.random()*shapes.length)];
+        document.getElementById('rot-ref').innerText = s1;
+        document.getElementById('rot-probe').innerText = s2;
+      };
+
+      window.submitRot = (ans) => {
+        if(!gameActive) return;
+        if(ans === isMatch) { score++; playTone(650,0.04); }
+        else { score = Math.max(0, score-1); playTone(150,0.1,'sawtooth'); }
+        document.getElementById('stat1-val').innerText = score;
+        nextRot();
+      };
+      nextRot();
+    }
+
+    function initDigitSpan(container, isBackward) {
+      container.className = "w-full h-full flex flex-col justify-between p-3 text-center";
+      let span = 3, seq = [], userIdx = 0, locked = true;
+      container.innerHTML = `
+        <div class="mono text-xs text-white font-bold" id="ds-status">MEMORIZE DIGITS</div>
+        <div id="ds-display" class="mono text-5xl font-black text-white flex-1 flex items-center justify-center">--</div>
+        <div class="grid grid-cols-3 gap-2 w-full" id="ds-keypad">
+          ${[1,2,3,4,5,6,7,8,9,0].map(n => `<button onclick="dsTap(${n})" class="py-2.5 bg-[#101010] border border-[#27272A] rounded-xl text-white font-bold text-base">${n}</button>`).join('')}
+        </div>
+      `;
+
+      const runSpan = () => {
+        if(!gameActive) return;
+        locked = true; userIdx = 0; seq = [];
+        document.getElementById('stat1-val').innerText = `${span} Digits`;
+        document.getElementById('ds-status').innerText = isBackward ? "MEMORIZE (REVERSE)" : "MEMORIZE SEQUENCE";
+        while(seq.length < span) seq.push(Math.floor(Math.random()*10));
+        
+        let idx = 0;
+        const interval = setInterval(() => {
+          if(!gameActive) { clearInterval(interval); return; }
+          if(idx < seq.length) {
+            document.getElementById('ds-display').innerText = seq[idx];
+            playTone(400 + seq[idx]*30, 0.05);
+            idx++;
+          } else {
+            clearInterval(interval);
+            document.getElementById('ds-display').innerText = "?";
+            locked = false;
+            document.getElementById('ds-status').innerText = isBackward ? "ENTER IN REVERSE" : "ENTER IN ORDER";
+          }
+        }, 800);
+      };
+
+      window.dsTap = (n) => {
+        if(!gameActive || locked) return;
+        playTone(600,0.04);
+        const target = isBackward ? [...seq].reverse()[userIdx] : seq[userIdx];
+        if(n === target) {
+          userIdx++;
+          if(userIdx >= seq.length) {
+            locked = true;
+            localStorage.setItem(isBackward ? 'np_best_bspan' : 'np_best_span', span);
+            updateBestDisplay();
+            span++;
+            document.getElementById('ds-status').innerText = "CORRECT ✓";
+            setTimeout(runSpan, 1000);
+          }
+        } else {
+          playTone(150,0.15,'sawtooth');
+          gameActive = false;
+          completeStage(`Span ${span-1}`, "Phonological loop tested.", "COMPLETE");
+        }
+      };
+      runSpan();
+    }
+
+    function initSymbolCoding(container) {
+      container.className = "w-full h-full flex flex-col justify-between p-2";
+      let score = 0, time = 25, currentSym = '★', targetNum = 3;
+      const map = {'★':1, '▲':2, '■':3, '◆':4};
+      const keys = Object.keys(map);
+
+      container.innerHTML = `
+        <div class="grid grid-cols-4 gap-1 bg-[#101010] p-2 rounded-xl text-center mono text-xs mb-2 border border-[#27272A]">
+          <div>★=1</div><div>▲=2</div><div>■=3</div><div>◆=4</div>
+        </div>
+        <div id="sym-box" class="flex-1 flex items-center justify-center text-6xl text-white">★</div>
+        <div class="grid grid-cols-4 gap-2 w-full">
+          ${keys.map((k,i) => `<button onclick="submitSym(${i+1})" class="py-3 bg-[#101010] border border-[#27272A] rounded-xl font-black text-white text-base">${i+1}</button>`).join('')}
+        </div>
+      `;
+
+      const nextSym = () => {
+        currentSym = keys[Math.floor(Math.random()*keys.length)];
+        targetNum = map[currentSym];
+        document.getElementById('sym-box').innerText = currentSym;
+      };
+
+      window.submitSym = (num) => {
+        if(!gameActive) return;
+        if(num === targetNum) { score++; playTone(650,0.04); }
+        else { score = Math.max(0, score-1); playTone(150,0.1,'sawtooth'); }
+        document.getElementById('stat1-val').innerText = score;
+        nextSym();
+      };
+
+      nextSym();
+      timerInterval = setInterval(() => {
+        time--; document.getElementById('stat2-val').innerText = `${time}s`;
+        if(time <= 0) {
+          gameActive = false; clearInterval(timerInterval);
+          localStorage.setItem('np_best_sym', score);
+          updateBestDisplay();
+          completeStage(`${score} Coded`, "Psychomotor speed active.", "COMPLETE");
+        }
+      }, 1000);
+    }
+
+    function initArithmetic(container) {
+      container.className = "w-full h-full flex flex-col justify-between p-2";
+      let score = 0, time = 25, ans = 0;
+      container.innerHTML = `
+        <div id="arith-eq" class="mono text-4xl font-black text-center flex-1 flex items-center justify-center text-white">7 + 5 = ?</div>
+        <div class="grid grid-cols-3 gap-2 w-full" id="arith-btns"></div>
+      `;
+
+      const nextArith = () => {
+        const a = Math.floor(Math.random()*12)+2;
+        const b = Math.floor(Math.random()*12)+2;
+        const op = Math.random() < 0.5 ? '+' : '-';
+        ans = op === '+' ? a + b : a - b;
+        if(ans < 0) { nextArith(); return; }
+        document.getElementById('arith-eq').innerText = `${a} ${op} ${b} = ?`;
+        let opts = [ans, ans + (Math.random()<0.5?1:-1)*(Math.floor(Math.random()*3)+1), ans + (Math.random()<0.5?2:-2)*(Math.floor(Math.random()*3)+1)].sort(()=>Math.random()-0.5);
+        document.getElementById('arith-btns').innerHTML = opts.map(o => `<button onclick="submitArith(${o})" class="py-3.5 bg-[#101010] border border-[#27272A] rounded-xl mono font-extrabold text-white text-base">${o}</button>`).join('');
+      };
+
+      window.submitArith = (val) => {
+        if(!gameActive) return;
+        if(val === ans) { score++; playTone(700,0.04); }
+        else { score = Math.max(0, score-1); playTone(150,0.1,'sawtooth'); }
+        document.getElementById('stat1-val').innerText = score;
+        nextArith();
+      };
+
+      nextArith();
+      timerInterval = setInterval(() => {
+        time--; document.getElementById('stat2-val').innerText = `${time}s`;
+        if(time <= 0) {
+          gameActive = false; clearInterval(timerInterval);
+          localStorage.setItem('np_best_arith', score);
+          updateBestDisplay();
+          completeStage(`${score} Solved`, "Intraparietal math active.", "COMPLETE");
+        }
+      }, 1000);
+    }
+
+    function initVigilance(container) {
+      container.className = "w-full h-full flex flex-col items-center justify-between p-4";
+      let hits = 0, angle = 0, skipNext = false;
+      container.innerHTML = `
+        <div class="relative w-40 h-40 rounded-full border-4 border-[#27272A] flex items-center justify-center bg-[#050505]">
+          <div id="vigil-hand" class="absolute w-1 h-16 bg-white origin-bottom bottom-1/2 left-[calc(50%-2px)] transition-transform duration-75"></div>
+        </div>
+        <button onclick="hitVigil()" class="w-full py-3.5 bg-white text-[#050505] font-extrabold uppercase rounded-xl text-xs">TAP ON SKIP</button>
+      `;
+
+      window.hitVigil = () => {
+        if(!gameActive) return;
+        if(skipNext) { hits++; playTone(800,0.06); document.getElementById('stat1-val').innerText = hits; skipNext = false; }
+        else { playTone(150,0.1,'sawtooth'); }
+      };
+
+      window.vigilInt = setInterval(() => {
+        if(!gameActive) return;
+        angle += 36;
+        if(Math.random() < 0.15) { angle += 36; skipNext = true; }
+        const h = document.getElementById('vigil-hand');
+        if(h) h.style.transform = `rotate(${angle}deg)`;
+        playTone(300, 0.02);
+      }, 700);
+    }
+
+    function initLexical(container) {
+      container.className = "w-full h-full flex flex-col justify-between p-2";
+      let score = 0, time = 25, isReal = true;
+      const realWords = ['STUDY','FOCUS','BRAIN','MEMORY','LOGIC','CODE','CORTEX','NEURON'];
+      const fakeWords = ['STURV','FOCIS','BRUIN','MEMRY','LOGIX','COED','CORTX','NEURM'];
+
+      container.innerHTML = `
+        <div id="lex-word" class="mono text-4xl font-black text-center flex-1 flex items-center justify-center text-white">STUDY</div>
+        <div class="grid grid-cols-2 gap-2 w-full">
+          <button onclick="submitLex(true)" class="py-3.5 bg-white text-black font-bold rounded-xl text-xs">REAL WORD ✓</button>
+          <button onclick="submitLex(false)" class="py-3.5 bg-[#101010] border border-[#27272A] text-white font-bold rounded-xl text-xs">FAKE ✕</button>
+        </div>
+      `;
+
+      const nextLex = () => {
+        isReal = Math.random() < 0.5;
+        const w = isReal ? realWords[Math.floor(Math.random()*realWords.length)] : fakeWords[Math.floor(Math.random()*fakeWords.length)];
+        document.getElementById('lex-word').innerText = w;
+      };
+
+      window.submitLex = (ans) => {
+        if(!gameActive) return;
+        if(ans === isReal) { score++; playTone(650,0.04); }
+        else { score = Math.max(0, score-1); playTone(150,0.1,'sawtooth'); }
+        document.getElementById('stat1-val').innerText = score;
+        nextLex();
+      };
+
+      nextLex();
+      timerInterval = setInterval(() => {
+        time--; document.getElementById('stat2-val').innerText = `${time}s`;
+        if(time <= 0) {
+          gameActive = false; clearInterval(timerInterval);
+          localStorage.setItem('np_best_lex', score);
+          updateBestDisplay();
+          completeStage(`${score} Words`, "Language networks primed.", "COMPLETE");
+        }
+      }, 1000);
+    }
+
+    function initRhythm(container) {
+      container.className = "w-full h-full flex flex-col items-center justify-between p-4";
+      let syncs = 0;
+      container.innerHTML = `
+        <div id="rhythm-pulse" class="w-32 h-32 rounded-full bg-[#101010] border-4 border-white flex items-center justify-center transition-all duration-100">
+          <span class="mono text-xs text-white font-bold">TAP BEAT</span>
+        </div>
+        <button onclick="tapRhythm()" class="w-full py-4 bg-white text-black font-extrabold uppercase rounded-xl text-xs">TAP BEAT</button>
+      `;
+
+      window.tapRhythm = () => {
+        if(!gameActive) return;
+        syncs++; playTone(700,0.05);
+        document.getElementById('stat1-val').innerText = syncs;
+        const p = document.getElementById('rhythm-pulse');
+        p.classList.add('scale-125');
+        setTimeout(() => p.classList.remove('scale-125'), 150);
+        if(syncs >= 15) {
+          gameActive = false;
+          localStorage.setItem('np_best_rhythm', '15 Beats');
+          updateBestDisplay();
+          completeStage("15 Beats Synced", "Cerebellar flow state locked.", "COMPLETE");
+        }
+      };
+    }
+
+    function initZen(container) {
+      container.className = "w-full h-full flex flex-col items-center justify-between p-4 text-center";
+      let cycle = 1;
+      container.innerHTML = `
+        <div id="zen-ring" class="w-40 h-40 rounded-full border-4 border-white bg-[#101010] flex items-center justify-center transition-all duration-1000">
+          <span id="zen-txt" class="mono text-sm font-bold text-white">INHALE (4s)</span>
+        </div>
+        <p class="text-xs text-[#A1A1AA]">Regulate parasympathetic tone before your study block.</p>
+      `;
+
+      const runZen = () => {
+        if(!gameActive) return;
+        const ring = document.getElementById('zen-ring');
+        const txt = document.getElementById('zen-txt');
+        txt.innerText = "INHALE"; ring.className = "w-48 h-48 rounded-full border-4 border-white bg-white text-black flex items-center justify-center transition-all duration-4000 scale-110";
+        playTone(300, 0.5);
+        window.z1 = setTimeout(() => {
+          if(!gameActive) return;
+          txt.innerText = "HOLD"; playTone(350, 0.5);
+          window.z2 = setTimeout(() => {
+            if(!gameActive) return;
+            txt.innerText = "EXHALE"; ring.className = "w-32 h-32 rounded-full border-4 border-[#71717A] bg-[#101010] text-white flex items-center justify-center transition-all duration-4000 scale-90";
+            playTone(250, 0.5);
+            window.z3 = setTimeout(() => {
+              if(!gameActive) return;
+              txt.innerText = "HOLD";
+              window.z4 = setTimeout(() => {
+                if(!gameActive) return;
+                cycle++; document.getElementById('stat1-val').innerText = `${cycle}/4`;
+                if(cycle > 4) {
+                  gameActive = false;
+                  localStorage.setItem('np_best_zen', '4 Cycles');
+                  updateBestDisplay();
+                  completeStage("4 Cycles Complete", "Anxiety cleared. Ready to study.", "COMPLETE");
+                } else { runZen(); }
+              }, 4000);
+            }, 4000);
+          }, 4000);
+        }, 4000);
+      };
+      runZen();
+    }
+
+    function initSymbolSearch(container) {
+      container.className = "w-full h-full flex flex-col justify-between p-2";
+      let score = 0, time = 25, isMatch = true;
+      const symbols = ['⌘','⌥','⌃','⇧','❖','◈','⎈','⏣'];
+
+      container.innerHTML = `
+        <div class="text-center"><span class="mono text-[10px] bg-[#101010] border border-[#27272A] px-3 py-1 rounded-full text-[#A1A1AA]">MATCH TARGET IN GROUP?</span></div>
+        <div class="flex items-center justify-center gap-6 flex-1 my-2">
+          <div class="p-4 bg-[#101010] border border-[#27272A] rounded-2xl text-center">
+            <span class="mono text-[9px] text-[#71717A] block mb-1">TARGET</span>
+            <span id="ss-target" class="text-4xl text-white">⌘</span>
+          </div>
+          <div class="text-xl text-[#71717A]">IN</div>
+          <div id="ss-group" class="p-4 bg-[#101010] border border-[#27272A] rounded-2xl text-center mono text-2xl tracking-widest text-white">⌘ ⌥ ⌃</div>
+        </div>
+        <div class="grid grid-cols-2 gap-2 w-full">
+          <button onclick="submitSymbolSearch(true)" class="py-3.5 bg-white text-black font-bold rounded-xl text-xs">YES (MATCH) ✓</button>
+          <button onclick="submitSymbolSearch(false)" class="py-3.5 bg-[#101010] border border-[#27272A] text-white font-bold rounded-xl text-xs">NO (NONE) ✕</button>
+        </div>
+      `;
+
+      const nextSS = () => {
+        isMatch = Math.random() < 0.5;
+        const target = symbols[Math.floor(Math.random()*symbols.length)];
+        let group = [symbols[Math.floor(Math.random()*symbols.length)], symbols[Math.floor(Math.random()*symbols.length)]];
+        if(isMatch) group[Math.floor(Math.random()*group.length)] = target;
+        document.getElementById('ss-target').innerText = target;
+        document.getElementById('ss-group').innerText = group.join(' ');
+        window.ssTarget = target; window.ssGroup = group;
+      };
+
+      window.submitSymbolSearch = (ans) => {
+        if(!gameActive) return;
+        const actual = window.ssGroup.includes(window.ssTarget);
+        if(ans === actual) { score++; playTone(650,0.04); }
+        else { score = Math.max(0, score-1); playTone(150,0.1,'sawtooth'); }
+        document.getElementById('stat1-val').innerText = score;
+        nextSS();
+      };
+
+      nextSS();
+      timerInterval = setInterval(() => {
+        time--; document.getElementById('stat2-val').innerText = `${time}s`;
+        if(time <= 0) {
+          gameActive = false; clearInterval(timerInterval);
+          localStorage.setItem('np_best_symbol_search', score);
+          updateBestDisplay();
+          completeStage(`${score} Symbol Searches`, "Visual discrimination primed.", "COMPLETE");
+        }
+      }, 1000);
+    }
+
+    function initOddOneOut(container) {
+      container.className = "w-full h-full flex flex-col justify-between p-2";
+      let score = 0, time = 25, oddIdx = 2;
+      container.innerHTML = `
+        <div class="text-center"><span class="mono text-[10px] bg-[#101010] border border-[#27272A] px-3 py-1 rounded-full text-[#A1A1AA]">TAP ODD SHAPE OUT</span></div>
+        <div class="grid grid-cols-2 gap-3 flex-1 items-center justify-center my-2 w-48 mx-auto" id="ooo-grid"></div>
+      `;
+
+      const nextOOO = () => {
+        oddIdx = Math.floor(Math.random()*4);
+        const normal = Math.random() < 0.5 ? '▲' : '■';
+        const odd = normal === '▲' ? '■' : '▲';
+        const grid = document.getElementById('ooo-grid');
+        grid.innerHTML = '';
+        for(let i=0; i<4; i++) {
+          const btn = document.createElement('button');
+          const shape = i === oddIdx ? odd : normal;
+          btn.className = "h-20 bg-[#101010] border border-[#27272A] rounded-2xl text-3xl flex items-center justify-center text-white hover:border-white transition";
+          btn.innerText = shape;
+          btn.onclick = () => {
+            if(!gameActive) return;
+            if(i === oddIdx) {
+              score++; playTone(700,0.04);
+              document.getElementById('stat1-val').innerText = score;
+              nextOOO();
+            } else {
+              score = Math.max(0, score-1); playTone(150,0.1,'sawtooth');
+              document.getElementById('stat1-val').innerText = score;
+            }
+          };
+          grid.appendChild(btn);
+        }
+      };
+
+      nextOOO();
+      timerInterval = setInterval(() => {
+        time--; document.getElementById('stat2-val').innerText = `${time}s`;
+        if(time <= 0) {
+          gameActive = false; clearInterval(timerInterval);
+          localStorage.setItem('np_best_odd_one_out', score);
+          updateBestDisplay();
+          completeStage(`${score} Odd-One-Out`, "Anterior prefrontal reasoning active.", "COMPLETE");
+        }
+      }, 1000);
+    }
+
+    function initReverseCorsi(container) {
+      container.className = "w-full h-full flex flex-col justify-between";
+      container.innerHTML = `
+        <div class="text-center mb-1"><span id="rc-status" class="mono text-[10px] text-[#EF4444] font-bold">WATCH & REPEAT IN REVERSE</span></div>
+        <div id="rc-grid" class="w-full flex-1 grid grid-cols-3 gap-2 p-1"></div>
+      `;
+      let span = 3, seq = [], userStep = 0, locked = true;
+      const grid = document.getElementById('rc-grid');
+
+      for(let i=0; i<9; i++) {
+        const b = document.createElement('button');
+        b.className = "bg-[#101010] border border-[#27272A] rounded-xl transition";
+        b.onclick = () => {
+          if(!gameActive || locked) return;
+          b.className = "bg-[#EF4444] border border-[#EF4444] rounded-xl shadow-[0_0_15px_rgba(239,68,68,0.6)]";
+          setTimeout(() => b.className = "bg-[#101010] border border-[#27272A] rounded-xl", 200);
+          
+          const revSeq = [...seq].reverse();
+          if(i === revSeq[userStep]) {
+            playTone(500 + userStep*40, 0.05);
+            userStep++;
+            if(userStep >= revSeq.length) {
+              locked = true;
+              localStorage.setItem('np_best_spatial_span_reverse', span);
+              updateBestDisplay();
+              span++;
+              document.getElementById('rc-status').innerText = "REVERSE LEVEL CLEARED ✓";
+              setTimeout(runRound, 1000);
+            }
+          } else {
+            playTone(150, 0.15, 'sawtooth');
+            gameActive = false;
+            completeStage(`Rev Span ${span-1}`, "Right cerebral hemisphere challenged.", "COMPLETE");
+          }
+        };
+        grid.appendChild(b);
+      }
+
+      const runRound = () => {
+        if(!gameActive) return;
+        locked = true; userStep = 0; seq = [];
+        document.getElementById('stat1-val').innerText = `${span} TILES`;
+        document.getElementById('stat2-val').innerText = "WATCH";
+        while(seq.length < span) {
+          const r = Math.floor(Math.random()*9);
+          if(seq[seq.length-1] !== r) seq.push(r);
+        }
+        const cells = grid.children;
+        seq.forEach((p, idx) => {
+          setTimeout(() => {
+            if(!gameActive) return;
+            cells[p].className = "bg-white border border-white rounded-xl shadow-[0_0_15px_rgba(255,255,255,0.6)]";
+            playTone(400 + idx*40, 0.06);
+            setTimeout(() => cells[p].className = "bg-[#101010] border border-[#27272A] rounded-xl", 400);
+          }, (idx+1)*600);
+        });
+        setTimeout(() => {
+          if(!gameActive) return;
+          locked = false;
+          document.getElementById('stat2-val').innerText = "REVERSE";
+          document.getElementById('rc-status').innerText = "TAP REVERSE ORDER";
+        }, (seq.length+1)*600);
+      };
+      runRound();
+    }
+
+    function initNumberLetterSwitch(container) {
+      container.className = "w-full h-full flex flex-col justify-between p-2";
+      let score = 0, time = 25, isNumberRule = true, currentVal = '7';
+      container.innerHTML = `
+        <div class="grid grid-cols-2 gap-2 mono text-[10px]">
+          <div id="nl-rule1" class="p-2 rounded-xl border border-white bg-[#101010] text-white text-center font-bold">TOP: EVEN / ODD</div>
+          <div id="nl-rule2" class="p-2 rounded-xl border border-[#27272A] bg-[#050505] text-[#71717A] text-center font-bold">BOTTOM: VOWEL / CONSONANT</div>
+        </div>
+        <div class="flex-1 flex items-center justify-center my-2">
+          <div class="w-32 h-32 rounded-3xl border-4 border-[#3B82F6] bg-[#172554] flex flex-col items-center justify-center shadow-2xl">
+            <span id="nl-char" class="mono text-5xl font-black text-white">7</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="submitNL('LEFT')" class="py-3 bg-[#101010] border border-[#27272A] rounded-xl mono text-xs font-bold text-white">EVEN / VOWEL (A,E,I,O,U)</button>
+          <button onclick="submitNL('RIGHT')" class="py-3 bg-[#101010] border border-[#27272A] rounded-xl mono text-xs font-bold text-white">ODD / CONSONANT</button>
+        </div>
+      `;
+
+      const nextNL = () => {
+        isNumberRule = Math.random() < 0.5;
+        currentVal = isNumberRule ? String(Math.floor(Math.random()*8)+1) : ['A','E','K','M','R','T'][Math.floor(Math.random()*6)];
+        document.getElementById('nl-char').innerText = currentVal;
+      };
+
+      window.submitNL = (side) => {
+        if(!gameActive) return;
+        let correct = isNumberRule ? ((parseInt(currentVal)%2===0)?'LEFT':'RIGHT') : (['A','E'].includes(currentVal)?'LEFT':'RIGHT');
+        if(side === correct) { score++; playTone(600,0.04); }
+        else { score = Math.max(0, score-1); playTone(150,0.1,'sawtooth'); }
+        document.getElementById('stat1-val').innerText = score;
+        nextNL();
+      };
+
+      nextNL();
+      timerInterval = setInterval(() => {
+        time--; document.getElementById('stat2-val').innerText = `${time}s`;
+        if(time <= 0) {
+          gameActive = false; clearInterval(timerInterval);
+          localStorage.setItem('np_best_number_letter_switch', score);
+          updateBestDisplay();
+          completeStage(`${score} Switches`, "Dorsolateral gyrus set-shifting primed.", "COMPLETE");
+        }
+      }, 1000);
+    }
+
+    function initSustainedAttention(container) {
+      container.className = "w-full h-full flex flex-col items-center justify-between p-4";
+      let streak = 0, mistakes = 0, isTarget = false;
+      container.innerHTML = `
+        <div class="flex-1 flex items-center justify-center w-full">
+          <div id="sa-box" class="w-36 h-36 rounded-3xl bg-green-600 border-4 border-green-400 flex flex-col items-center justify-center shadow-[0_0_30px_rgba(34,197,94,0.4)] transition-all">
+            <span id="sa-txt" class="mono text-xl font-black text-white">HOLD TAP</span>
+          </div>
+        </div>
+        <div class="w-full text-center mono text-[10px] text-[#A1A1AA]">HOLD DOWN TO MAINTAIN • RELEASE ON RED</div>
+      `;
+
+      const triggerStimulus = () => {
+        if(!gameActive) return;
+        isTarget = Math.random() < 0.35;
+        const box = document.getElementById('sa-box');
+        const txt = document.getElementById('sa-txt');
+        if(isTarget) {
+          box.className = "w-36 h-36 rounded-3xl bg-red-600 border-4 border-red-400 flex flex-col items-center justify-center shadow-[0_0_30px_rgba(239,68,68,0.6)]";
+          txt.innerText = "RELEASE!"; playTone(250,0.08,'sawtooth');
+        } else {
+          box.className = "w-36 h-36 rounded-3xl bg-green-600 border-4 border-green-400 flex flex-col items-center justify-center shadow-[0_0_30px_rgba(34,197,94,0.4)]";
+          txt.innerText = "HOLD TAP";
+        }
+        window.saTimeout = setTimeout(triggerStimulus, 1200 + Math.random()*1500);
+      };
+
+      const box = document.getElementById('sa-box');
+      box.onpointerdown = () => {
+        if(!gameActive) return;
+        if(isTarget) {
+          mistakes++; playTone(150,0.1,'sawtooth');
+          document.getElementById('stat2-val').innerText = `${Math.max(0, 100 - mistakes*10)}%`;
+        } else {
+          streak++; playTone(600,0.03);
+          document.getElementById('stat1-val').innerText = streak;
+          if(streak >= 20) {
+            gameActive = false; clearTimeout(window.saTimeout);
+            localStorage.setItem('np_best_sustained_attention_go', '20 Streaks');
+            updateBestDisplay();
+            completeStage("20 Vigilance Streaks", "Reticular activating system online.", "COMPLETE");
+          }
+        }
+      };
+
+      setTimeout(triggerStimulus, 1000);
+    }
+
+    function initDualNBack(container) {
+      container.className = "w-full h-full flex flex-col justify-between p-2";
+      let step = 0, score = 0, mistakes = 0, history = [], respondedPos = false, respondedAud = false;
+      const letters = ['A', 'K', 'Q', 'J', 'S'];
+
+      container.innerHTML = `
+        <div class="flex justify-between w-full mono text-[10px] text-[#A1A1AA]">
+          <span id="d2-audio" class="text-white font-bold">AUDIO: --</span>
+          <span id="d2-step" class="text-[#A1A1AA]">0/16</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2 w-full flex-1 my-2">
+          ${Array.from({length:9}, () => `<div class="d2-cell bg-[#101010] border border-[#27272A] rounded-xl"></div>`).join('')}
+        </div>
+        <div class="grid grid-cols-2 gap-2 w-full">
+          <button onclick="submitDualPos()" class="py-3 bg-[#101010] border border-[#27272A] text-white font-bold rounded-xl text-xs">POS MATCH (2-BACK)</button>
+          <button onclick="submitDualAud()" class="py-3 bg-[#101010] border border-[#27272A] text-white font-bold rounded-xl text-xs">AUDIO MATCH (2-BACK)</button>
+        </div>
+      `;
+
+      const runStep = () => {
+        if(!gameActive) return;
+        if(step >= 16) {
+          gameActive = false; clearInterval(window.d2Int);
+          localStorage.setItem('np_best_dual_n_back', `${score} Hits`);
+          updateBestDisplay();
+          completeStage(`${score} Dual Hits`, "Frontoparietal dual-network active.", "COMPLETE");
+          return;
+        }
+
+        respondedPos = false; respondedAud = false;
+        document.querySelectorAll('.d2-cell').forEach(c => c.className = "d2-cell bg-[#101010] border border-[#27272A] rounded-xl");
+        
+        let p = (step >= 2 && Math.random() < 0.4) ? history[step-2].p : Math.floor(Math.random()*9);
+        let l = (step >= 2 && Math.random() < 0.4) ? history[step-2].l : letters[Math.floor(Math.random()*letters.length)];
+        
+        history.push({p, l});
+        step++;
+        document.getElementById('d2-step').innerText = `${step}/16`;
+        document.getElementById('stat1-val').innerText = `${step}/16`;
+        document.getElementById('d2-audio').innerText = `AUDIO: ${l}`;
+
+        setTimeout(() => {
+          if(!gameActive) return;
+          document.querySelectorAll('.d2-cell')[p].className = "d2-cell bg-white border border-white rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.6)]";
+          playTone(450, 0.05);
+        }, 150);
+      };
+
+      window.submitDualPos = () => {
+        if(!gameActive || step < 3 || respondedPos) return;
+        respondedPos = true;
+        if(history[history.length-1].p === history[history.length-3].p) {
+          score++; playTone(700,0.05); document.getElementById('stat2-val').innerText = `${score} Hits`;
+        } else { mistakes++; playTone(150,0.1,'sawtooth'); }
+      };
+
+      window.submitDualAud = () => {
+        if(!gameActive || step < 3 || respondedAud) return;
+        respondedAud = true;
+        if(history[history.length-1].l === history[history.length-3].l) {
+          score++; playTone(750,0.05); document.getElementById('stat2-val').innerText = `${score} Hits`;
+        } else { mistakes++; playTone(150,0.1,'sawtooth'); }
+      };
+
+      runStep();
+      window.d2Int = setInterval(runStep, 2200);
+    }
+
+    function initSubitizing(container) {
+      container.className = "w-full h-full flex flex-col justify-between p-2";
+      let score = 0, time = 25, targetCount = 4;
+      container.innerHTML = `
+        <div class="text-center"><span class="mono text-[10px] bg-[#101010] border border-[#27272A] px-3 py-1 rounded-full text-[#A1A1AA]">INSTANTLY COUNT DOTS</span></div>
+        <div id="sub-arena" class="relative flex-1 w-full bg-[#101010] border border-[#27272A] rounded-2xl my-2 overflow-hidden"></div>
+        <div class="grid grid-cols-4 gap-2 w-full">
+          ${[3,4,5,6].map(n => `<button onclick="submitSub(${n})" class="py-3.5 bg-[#101010] border border-[#27272A] rounded-xl mono font-extrabold text-white text-base">${n}</button>`).join('')}
+        </div>
+      `;
+
+      const nextSub = () => {
+        targetCount = Math.floor(Math.random()*4) + 3;
+        const arena = document.getElementById('sub-arena');
+        arena.innerHTML = '';
+        const coords = [];
+        while(coords.length < targetCount) {
+          const x = 20 + Math.random()*220;
+          const y = 20 + Math.random()*120;
+          if(coords.every(c => Math.hypot(c.x-x, c.y-y) > 30)) {
+            coords.push({x, y});
+            const dot = document.createElement('div');
+            dot.className = "absolute w-6 h-6 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]";
+            dot.style.left = `${x}px`; dot.style.top = `${y}px`;
+            arena.appendChild(dot);
+          }
+        }
+      };
+
+      window.submitSub = (num) => {
+        if(!gameActive) return;
+        if(num === targetCount) { score++; playTone(700,0.04); }
+        else { score = Math.max(0, score-1); playTone(150,0.1,'sawtooth'); }
+        document.getElementById('stat1-val').innerText = score;
+        nextSub();
+      };
+
+      nextSub();
+      timerInterval = setInterval(() => {
+        time--; document.getElementById('stat2-val').innerText = `${time}s`;
+        if(time <= 0) {
+          gameActive = false; clearInterval(timerInterval);
+          localStorage.setItem('np_best_subitizing', score);
+          updateBestDisplay();
+          completeStage(`${score} Subitizations`, "Occipital visual quantification primed.", "COMPLETE");
+        }
+      }, 1000);
+    }
+
+    function initSemanticFluency(container) {
+      container.className = "w-full h-full flex flex-col justify-between p-2";
+      let score = 0, time = 25, isMatch = true, currentCat = 'SCIENCE', currentTerm = 'ATOM';
+      const categories = {
+        SCIENCE: ['ATOM','CELL','GENE','ION','QUARK','MASS','WAVE'],
+        TECH: ['CODE','BYTE','CHIP','DATA','SYNC','NODE','LINK'],
+        MATH: ['SUM','AXIS','LOG','SURD','BASE','MEAN','PLOT']
+      };
+      const fakes = ['BANANA','CHAIR','GUITAR','OCEAN','PILLOW','GUITAR','SHIRT'];
+
+      container.innerHTML = `
+        <div class="text-center"><span id="sem-cat" class="mono text-[10px] bg-[#101010] border border-[#27272A] px-3 py-1 rounded-full text-white font-bold">CATEGORY: SCIENCE</span></div>
+        <div id="sem-term" class="mono text-4xl font-black text-center flex-1 flex items-center justify-center text-white">ATOM</div>
+        <div class="grid grid-cols-2 gap-2 w-full">
+          <button onclick="submitSem(true)" class="py-3.5 bg-white text-black font-bold rounded-xl text-xs">BELONGS ✓</button>
+          <button onclick="submitSem(false)" class="py-3.5 bg-[#101010] border border-[#27272A] text-white font-bold rounded-xl text-xs">DOES NOT ✕</button>
+        </div>
+      `;
+
+      const nextSem = () => {
+        const cats = Object.keys(categories);
+        currentCat = cats[Math.floor(Math.random()*cats.length)];
+        isMatch = Math.random() < 0.5;
+        const list = categories[currentCat];
+        currentTerm = isMatch ? list[Math.floor(Math.random()*list.length)] : fakes[Math.floor(Math.random()*fakes.length)];
+        document.getElementById('sem-cat').innerText = `CATEGORY: ${currentCat}`;
+        document.getElementById('sem-term').innerText = currentTerm;
+      };
+
+      window.submitSem = (ans) => {
+        if(!gameActive) return;
+        const actual = categories[currentCat].includes(currentTerm);
+        if(ans === actual) { score++; playTone(650,0.04); }
+        else { score = Math.max(0, score-1); playTone(150,0.1,'sawtooth'); }
+        document.getElementById('stat1-val').innerText = score;
+        nextSem();
+      };
+
+      nextSem();
+      timerInterval = setInterval(() => {
+        time--; document.getElementById('stat2-val').innerText = `${time}s`;
+        if(time <= 0) {
+          gameActive = false; clearInterval(timerInterval);
+          localStorage.setItem('np_best_semantic_fluency', score);
+          updateBestDisplay();
+          completeStage(`${score} Categorized`, "Temporal lobe semantic retrieval active.", "COMPLETE");
+        }
+      }, 1000);
+    }
+
+    function initStopSignal(container) {
+      container.className = "w-full h-full flex flex-col justify-between p-2";
+      let trials = 0, hits = 0, state = 'GO', dir = 'LEFT', responded = false;
+      container.innerHTML = `
+        <div class="text-center"><span id="stop-msg" class="mono text-[10px] bg-[#101010] border border-[#27272A] px-3 py-1 rounded-full text-white">TAP ARROW (FREEZE ON CHIME)</span></div>
+        <div id="stop-box" class="flex-1 flex items-center justify-center text-7xl font-black text-white">←</div>
+        <div class="grid grid-cols-2 gap-2 w-full">
+          <button onclick="submitStop('LEFT')" class="py-3.5 bg-[#101010] border border-[#27272A] text-white font-bold rounded-xl text-sm">← LEFT</button>
+          <button onclick="submitStop('RIGHT')" class="py-3.5 bg-[#101010] border border-[#27272A] text-white font-bold rounded-xl text-sm">RIGHT →</button>
+        </div>
+      `;
+
+      const nextStopTrial = () => {
+        if(!gameActive) return;
+        if(trials >= 12) {
+          gameActive = false;
+          localStorage.setItem('np_best_inhibition_stop_signal', `${hits}/12`);
+          updateBestDisplay();
+          completeStage(`${hits}/12 Inhibited`, "Prefrontal motor brakes tested.", "COMPLETE");
+          return;
+        }
+        trials++; responded = false;
+        document.getElementById('stat2-val').innerText = `${trials}/12`;
+        dir = Math.random() < 0.5 ? 'LEFT' : 'RIGHT';
+        state = 'GO';
+        const box = document.getElementById('stop-box');
+        box.innerText = dir === 'LEFT' ? '←' : '→';
+        box.style.color = '#FFFFFF';
+        playTone(450,0.04);
+
+        if(Math.random() < 0.35) {
+          window.stopInt = setTimeout(() => {
+            if(!gameActive || responded) return;
+            state = 'STOP';
+            box.innerText = 'STOP';
+            box.style.color = '#EF4444';
+            playTone(180,0.12,'sawtooth');
+          }, 250);
+        }
+      };
+
+      window.submitStop = (choice) => {
+        if(!gameActive || responded) return;
+        responded = true;
+        if(state === 'GO' && choice === dir) {
+          hits++; playTone(700,0.04); document.getElementById('stat1-val').innerText = hits;
+        } else if(state === 'STOP') {
+          playTone(150,0.15,'sawtooth');
+        }
+        setTimeout(nextStopTrial, 400);
+      };
+
+      nextStopTrial();
+    }
+
+    function initTemporalEstimation(container) {
+      container.className = "w-full h-full flex flex-col items-center justify-between p-4 text-center";
+      let startTime = 0, running = false;
+      container.innerHTML = `
+        <div class="my-auto">
+          <div id="temp-clock" class="mono text-5xl font-black text-white mb-2">0.0s</div>
+          <p class="text-xs text-[#A1A1AA]">Press START, close your eyes, and tap STOP when you feel 10.0 seconds have passed.</p>
+        </div>
+        <button id="temp-btn" onclick="toggleTemporal()" class="w-full py-4 bg-white text-[#050505] font-extrabold uppercase rounded-xl text-xs">START CLOCK</button>
+      `;
+
+      window.toggleTemporal = () => {
+        if(!gameActive) return;
+        const btn = document.getElementById('temp-btn');
+        if(!running) {
+          running = true; startTime = performance.now();
+          btn.innerText = "STOP AT 10.0s";
+          window.tempInt = setInterval(() => {
+            if(!running) return;
+            const el = ((performance.now() - startTime)/1000).toFixed(1);
+            document.getElementById('temp-clock').innerText = `${el}s`;
+          }, 100);
+        } else {
+          running = false; clearInterval(window.tempInt);
+          const finalTime = ((performance.now() - startTime)/1000).toFixed(2);
+          const diff = Math.abs(10.0 - parseFloat(finalTime)).toFixed(2);
+          btn.innerText = "START CLOCK";
+          localStorage.setItem('np_best_temporal_estimation', `${diff}s off`);
+          updateBestDisplay();
+          gameActive = false;
+          completeStage(`${diff}s Off Target`, "Insular time estimation primed.", "SUITE COMPLETE ✓");
+        }
+      };
+    }
+  </script>
+</body>
+</html>
